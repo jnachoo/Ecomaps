@@ -1,0 +1,15 @@
+#logo{
+    text-align: left;
+    height: 100px;
+    width: 200px;
+}
+header{
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    height: 100px;
+}
+
+img {
+    width: auto;
+    text-align: left;
+}
