@@ -14,19 +14,39 @@
     </head>
     <body>
         <header>
-            <div><a href="index.html"><img src="images/logopucv-removebg-preview.png" id="logo"></a></div>
-            <div><button><a href="inicioSesion.html">Iniciar sesion</a></button></div>
-            <div><button><a href="registro.html">Registrarme</a></button></div>
-            <div><button><a href="mapa.html">ECOmapa</a></button></div>
-            <div><button><a href="info.html">Recicla</a></button></div>
-            <div><button><a href="ayuda.html">Ayuda</a></button></div>
-
+            <nav>
+                <ul>
+                    <li><a class="a-img" href="index.html"><img src="images/logopucv-removebg-preview.png" id="logo"></a></li>
+                    <li><a class="a-text" href="inicioSesion.html">Iniciar sesion</a></li>
+                    <li><a class="a-text" href="registro.html">Registrarme</a></li>
+                    <li><a class="a-text" href="mapa.html">ECOmapa</a></li>
+                    <li><a class="a-text" href="info.html">Recicla</a></li>
+                    <li><a class="a-text" href="ayuda.html">Ayuda</a></li>
+                </ul>
+            </nav>
         </header>
 
 
         <section>
             <h1>Iniciar sesion</h1>
-            <button><a href="">Siguiente</a></button>
+            <form>
+                <ul>
+                    <li>
+                        <label>Correo electrónico</label>
+                        <input type="email" id="email"/>
+                    </li>
+
+                    <li>
+                        <label>Contraseña</label>
+                        <input type="password" id="cotrasenya">
+                    </li>
+
+                    <li>
+                        <button type="submit"><a href="">Siguiente</a></button>
+                    </li>
+                </ul>
+            </form>
+            
         </section>
         <section>
             <button><a href="registro.html">Registrarme</a></button>
