@@ -1,0 +1,37 @@
+section {
+    padding-left: 30px;
+    padding-top: 20px;
+    background-color: #D9D9D9;
+    width: 100%
+}
+
+form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.left-form{
+    margin-right: 1%;
+    padding-left: 30px;
+    padding-top: 20px;
+    background-color: #D9D9D9;
+    width: 48%;
+    height: 100%
+}
+
+.left-right{
+    margin-left: 1%;
+    padding-left: 30px;
+    padding-top: 20px;
+    background-color: #D9D9D9;
+    width: 48%;
+    height: 100%
+}
+
+button{
+    color: white;
+    background: #42B937;
+    border-radius: 20px;
+}
+
