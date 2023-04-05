@@ -43,43 +43,66 @@
 
 
         <section>
+            <!-- usar container fluid aca -->
             <h1>Registrarse</h1>
             <br/>
             
-            <form>
+            <form id="formRegistro">
                 <div class="left-form">
-                    <label>Nombre</label><br/>
+                    <label for="nombre">Nombre</label><br/>
                     <input type="text" id="nombre"/><br/>
-                    <label>Email</label><br/>
+
+                    <label for="email">Email</label><br/>
                     <input type="email" id="email"/><br/>
-                    <label>RUT</label><br/>
+
+                    <label for="rut">RUT</label><br/>
                     <input type="text" id="rut"/><br/>
-                    <label>Telefono</label><br/>
+
+                    <label for="telefono">Telefono</label><br/>
                     <input type="text" id="tel"/><br/>
-                    <label>Fecha de Nacimiento</label><br/>
+
+                    <label for="fechaNac">Fecha de Nacimiento</label><br/>
                     <input type="date" id="fechaNac"/><br/><br/>
+
                 </div>
 
                 <div class="right-form">
-                    <label>Región</label><br/>
-                    <input type="text" id="region"/><br/>
-                    <label>Comuna</label><br/>
-                    <input type="text" id="comuna"/><br/>
-                    <label>Contraseña</label><br/>
+                    <label for="region">Región</label><br/>
+                    <select name="region" id="region">
+                        <option value="1">Valparaíso</option>
+                        <option value="2">Atacama</option>
+                        <option value="3">Arica y Parinacota</option>
+                        <option value="4">Los lagos</option>
+                    </select><br/>
+
+                    <label for="comuna">Comuna</label><br/>
+                    <select name="region" id="comuna">
+                        <option value="1">Valparaíso</option>
+                        <option value="2">presio</option>
+                        <option value="3">ora</option>
+                        <option value="4">ola</option>
+                    </select><br/>
+
+
+                    <label for="contrasenya">Contraseña</label><br/>
                     <input type="password" id="contrasenya"/><br/>
-                    <label>Confirmar Contraseña</label><br/>
+
+                    <label for="recontrasenya">Confirmar Contraseña</label><br/>
                     <input type="password" id="recontrasenya"/><br/><br/>
+
                     <input type="checkbox" id="tyc"/>
                     <label>Acepto términos y condiciones</label><br/><br/>
+
                     <button type="submit">Siguiente</button><br/><br/>
                 </div>
             </form>
+            <script type="text/javascript" src="js/registro.js"></script>
         </section>
 
         <footer>
             <div class="container-fluid" id="piePagina">
                     <div class="datos row row-cols-auto">
-                        <div class="col">
+                        <div class="col-md">
                             © 2023 ECOmaps
                         </div>
                         <div class="col">
