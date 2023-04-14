@@ -43,60 +43,192 @@
 
 
         <section>
-            <!-- usar container fluid aca -->
-            <h1>Registrarse</h1>
+            <div class="container-fluid">
+                <h1>Registrarse</h1>
+
+                <form class="formulario row g-3 p-3 needs-validation" novalidate>
+                    
+                    <div class="col-12 col-md-6" id="campos-1">
+
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <label class="form-label">Nombre</label>
+                            </div>
+                            
+                            <div class="col-12">
+                                <input type="text" class="form-control" id="nombre" name="nombre" required>
+                            </div>
+                            
+                            <div class="col invalid-feedback">
+
+                            </div>
+                        </div>
+
+                        <br/>
+
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <label class="form-label">Correo Electrónico</label>
+                            </div>
+                            
+                            <div class="col-12">
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="col invalid-feedback">
+
+                            </div>
+                        </div>
+
+                        <br/>
+
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <label class="form-label">Rut</label>
+                            </div>
+                            
+                            <div class="col-12">
+                                <input type="text" class="form-control" id="rut" name="rut" required>
+                            </div>
+                            
+                            <div class="col invalid-feedback">
+
+                            </div>
+                        </div>
+
+                        <br/>
+
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <label class="form-label">Teléfono</label>
+                            </div>
+                            
+                            <div class="col-12">
+                                <input type="text" class="form-control" id="telefono" name="telefono" required>
+                            </div>
+                            
+                            <div class="col invalid-feedback">
+
+                            </div>
+                        </div>
+
+                        <br/>
+
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <label class="form-label">Fecha de Nacimiento</label>
+                            </div>
+                            
+                            <div class="col-12">
+                                <input type="datepicker" class="form-control" id="fechaNac" name="fechaNac" required>
+                            </div>
+                            
+                            <div class="col invalid-feedback">
+
+                            </div>
+                        </div>
+
+                        <br/>
+                    </div>
+
+                    <div class="col-12 col-md-6" id="campos-2">
+
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <label class="form-label">Región</label>
+                            </div>
+                            
+                            <div class="col-12">
+                                <select class="form-select" id="region" name="region" required>
+                                    <option value="1">Valparaíso</option>
+                                    <option value="2">Atacama</option>
+                                    <option value="3">Arica y Parinacota</option>
+                                    <option value="4">Los lagos</option>
+                                </select>
+                            </div>
+                            
+                            <div class="col invalid-feedback">
+
+                            </div>
+                        </div>
+
+                        <br/>
+
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <label class="form-label">Comuna</label>
+                            </div>
+                            
+                            <div class="col-12">
+                                <select class="form-select" id="comuna" name="comuna" required>
+                                    <option value="1">Valparaíso</option>
+                                    <option value="2">Viña del Mar</option>
+                                    <option value="3">San Antonio</option>
+                                    <option value="4">Quilpué</option>
+                                </select>
+                            </div>
+                            
+                            <div class="col invalid-feedback">
+
+                            </div>
+                        </div>
+
+                        <br/>
+
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <label class="form-label">Contraseña</label>
+                            </div>
+                            
+                            <div class="col-12">
+                                <input type="password" class="form-control" id="contrasenya" name="contrasenya" required>
+                            </div>
+                            
+                            <div class="col invalid-feedback">
+
+                            </div>
+                        </div>
+
+                        <br/>
+
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <label class="form-label">Confirmar Contraseña</label>
+                            </div>
+                            
+                            <div class="col-12">
+                                <input type="password" class="form-control" id="recontrasenya" name="recontrasenya" required>
+                            </div>
+                            
+                            <div class="col invalid-feedback">
+
+                            </div>
+                        </div>
+
+                        <br/>
+
+                        <div class="form-group row">
+                            <div class="col-1">
+                                <input type="checkbox" id="tyc"/>
+                            </div>
+
+                            <div class="col-5">
+                                <label>Acepto términos y condiciones</label>
+                            </div>
+                        </div>
+
+                        <br/>
+
+                        <div class="form-group row">
+                            <button type="submit">Siguiente</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
             <br/>
             
-            <form id="formRegistro">
-                <div class="left-form">
-                    <label for="nombre">Nombre</label><br/>
-                    <input type="text" id="nombre"/><br/>
-
-                    <label for="email">Email</label><br/>
-                    <input type="email" id="email"/><br/>
-
-                    <label for="rut">RUT</label><br/>
-                    <input type="text" id="rut"/><br/>
-
-                    <label for="telefono">Telefono</label><br/>
-                    <input type="text" id="tel"/><br/>
-
-                    <label for="fechaNac">Fecha de Nacimiento</label><br/>
-                    <input type="date" id="fechaNac"/><br/><br/>
-
-                </div>
-
-                <div class="right-form">
-                    <label for="region">Región</label><br/>
-                    <select name="region" id="region">
-                        <option value="1">Valparaíso</option>
-                        <option value="2">Atacama</option>
-                        <option value="3">Arica y Parinacota</option>
-                        <option value="4">Los lagos</option>
-                    </select><br/>
-
-                    <label for="comuna">Comuna</label><br/>
-                    <select name="region" id="comuna">
-                        <option value="1">Valparaíso</option>
-                        <option value="2">presio</option>
-                        <option value="3">ora</option>
-                        <option value="4">ola</option>
-                    </select><br/>
-
-
-                    <label for="contrasenya">Contraseña</label><br/>
-                    <input type="password" id="contrasenya"/><br/>
-
-                    <label for="recontrasenya">Confirmar Contraseña</label><br/>
-                    <input type="password" id="recontrasenya"/><br/><br/>
-
-                    <input type="checkbox" id="tyc"/>
-                    <label>Acepto términos y condiciones</label><br/><br/>
-
-                    <button type="submit">Siguiente</button><br/><br/>
-                </div>
-            </form>
-            <script type="text/javascript" src="js/registro.js"></script>
+            
         </section>
 
         <footer>
@@ -131,7 +263,11 @@
                     </div>        
             </div>
         </footer>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" defer crossorigin="anonymous"></script>
+        <script src="js/jquery-3.6.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js" crossorigin="anonymous"></script>
+
+        <script src="js/registrojQuery.js"></script>
         
     </body>
 </html>

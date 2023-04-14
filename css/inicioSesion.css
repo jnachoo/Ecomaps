@@ -1,74 +1,56 @@
 
-section .container-fluid{
-    padding: 0;
-    display: flex;
-    column-gap: 10px;
-}
-.formulario .col{
-    height: 71vh;
-    width: auto;
-    background-color: #d9d9d9;
-}
 
 /* ESTILOS FORMULARIO */
 h1{
     padding-inline-start: 32px;
     font-family: Arial, Helvetica, sans-serif;
 }
-form{
-    width: 200px;
-    height: 65%;
-}
 
-form ul{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    list-style: none;
-    justify-content: space-evenly;
-    width: 100%;
-    height: 50%;
-}
+
 form ul li{
     font-family: Arial, Helvetica, sans-serif;
 }
-input{
-    width: 700px;
-}
-.aux{
-    width: 570px;
-}
-#botones{
-    display: inline;
-    
-}
-#botones li{
-    display: inline;
-}
+
 .conOlvidada{
     color: #104911;
     padding-left: 10em;
 }
-#botones button a{
-    text-decoration: none;
-    color: white;
-}
-#botones button{
-    border: 0;
-    border-radius: 20px;
-    background-color: #42B937;
-    height: 40px;
-    width: 150px;
-}
 
-.imagen-inse{
-    width: 75%;
-    height: 95%
-}
+
 /*REGISTRO*/
 .registro {
     text-align-last: center;
 }
 .registro a{
     color: #104911;
+}
+
+
+/*Responsividad Bootstrap*/
+
+.left-section{
+    background-color: #d9d9d9;
+    border-radius: 10px;
+}
+
+.right-section{
+    background-color: #d9d9d9;
+    border-radius: 10px;
+}
+
+
+
+.formulario{
+    padding: 0 0 0 32px;
+}
+
+.col-12 input{
+    width: 80%;
+}
+
+.form-group button{
+    color: white;
+    background: #42B937;
+    border-radius: 25px;
+    width: 25%;
 }
