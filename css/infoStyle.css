@@ -6,12 +6,13 @@ section {
 }
 
 .left-info {
-    margin-right: 1%;
-    padding-left: 30px;
-    padding-top: 20px;
+    /*margin-right: 1%;*/
+    padding-left: 2%;
+    padding-top: 2%;
     background-color: #D9D9D9;
-    width: 69%;
-    height: 100%
+    border-radius: 10px;
+    /*width: 69%;
+    height: 100%*/
 }
 
 .galeria {
@@ -23,18 +24,19 @@ section {
 }
 
 .publicacion {
-    margin: 2%;
+    /*margin: 2%;*/
     background-color: #FFFFFF;
-    width: 25%;
-    height: 25;
+    /*width: 25%;
+    height: 25%;*/
     justify-content: center;
 }
 
 .right-info {
-    margin-left: 1%;
-    padding-left: 30px;
-    padding-top: 20px;
+    /*margin-left: 1%;*/
+    padding-left: 2%;
+    padding-top: 2%;
     background-color: #D9D9D9;
-    width: 29%;
-    height: 100%
+    border-radius: 10px;
+    /*width: 29%;
+    height: 100%*/
 }

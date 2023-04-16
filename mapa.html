@@ -1,104 +1,179 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/styles.css">
-        <link rel="stylesheet" href="css/mapaStyle.css">
-        <!-- Iconos -->
-        <script src="https://kit.fontawesome.com/1e76b598b4.js"crossorigin="anonymous"></script>
-        <!--Bootstrap-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 
-    </head>
-    <body>
-        <header>
-            <nav class="navbar navbar-expand-lg" style="background-color: #104911;">
-                <div class="container-fluid">
-                    <a class="a-img" href="index.html"><img src="images/logopucv-removebg-preview.png" id="logo"></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">                  
-                        <ul class="navbar-nav" >
-                            <li class="nav-item">
-                                <a class="nav-link"  href="inicioSesion.html">Iniciar sesion</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="mapa.html">ECOmapa</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="info.html">Recicla</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="ayuda.html">Ayuda</a>
-                            </li>
-                        </ul> 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mapaStyle.css">
+    <!-- Iconos -->
+    <script src="https://kit.fontawesome.com/1e76b598b4.js" crossorigin="anonymous"></script>
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg" style="background-color: #104911;">
+            <div class="container-fluid">
+                <a class="a-img" href="index.html"><img src="images/logopucv-removebg-preview.png" id="logo"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="inicioSesion.html">Iniciar sesion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="mapa.html">ECOmapa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="info.html">Recicla</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ayuda.html">Ayuda</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section>
+        <div class="container-fluid p-0">
+            <div class="row g-3">
+                <div class="col-12 col-md-6">
+                    <div class="left-section">
+
+                        <div class="container-fluid p-0">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <div class="left-section-1">
+                                        <h1>ECOmapa</h1>
+                                        <br />
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label>Busca tu punto de reciclaje más cercano</label>
+                                            </div>
+                                            <br />
+
+                                            <div class="col-12">
+                                                <div class="row">
+                                                    <div class="col-12 col-md-9">
+                                                        <input type="text" id="punto_reciclaje">
+                                                    </div>
+                                                    <div class="col-3 col-md-3">
+                                                        <button>Buscar</button>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+
+                                        </div>
+ 
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="left-section-2">
+                                        <p>Resultados de la búsqueda</p>
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
                     </div>
                 </div>
-            </nav>
-        </header>
 
-        <section>
-            <div class="left-section">
-                <div class="left-section-1">
-                    <h1>ECOmapa</h1>
-                    <br/>
-                    <label>Busca tu punto de reciclaje más cercano</label>
-                    <br/>
-                    <input type="text" id="punto_reciclaje">
-                </div>
-
-                <div class="left-section-2">
-                    <p>Resultados de la búsqueda</p>
-                    <br/>
-                </div>
-            </div>
-            
-
-            <div class="right-section">
-                <iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2578.467609519125!2d-71.61285935256299!3d-33.04450351533515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2scl!4v1680226032259!5m2!1ses-419!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </section>
-        
-
-        <footer>
-            <div class="container-fluid" id="piePagina">
-                    <div class="datos row row-cols-auto">
-                        <div class="col">
-                            © 2023 ECOmaps
-                        </div>
-                        <div class="col">
-                            (00) 00 00 000
-                        </div>
-                        <div class="col">
-                            contacto@ecomaps.cl
-                        </div>
-                        <div class="col">
-                            Av. Brasil 2241 oficina 3-12, Valparaíso
-                        </div>
+                <div class="col-12 col-md-6">
+                    <div class="right-section">
+                        <iframe class="mapa"
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2578.467609519125!2d-71.61285935256299!3d-33.04450351533515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2scl!4v1680226032259!5m2!1ses-419!2scl"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
-                    <div class="iconos row row-cols-auto">
-                        <div class="col">
-                            <i class="fa-brands fa-facebook"></i>
-                        </div>
-                        <div class="col">
-                            <i class="fa-brands fa-instagram"></i>
-                        </div>
-                        <div class="col">
-                            <i class="fa-brands fa-twitter"></i>
-                        </div>
-                        <div class="col">
-                            @ecomaps.cl
-                        </div>
-                    </div>        
+                </div>
             </div>
-        </footer>
-        
+        </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
-    </body>
+
+
+
+    </section>
+
+
+    <footer>
+        <div class="container-fluid" id="piePagina">
+            <div class="row">
+                <div class="col-12 col-sm-4 col-md-4 col-lg-3">
+                    <div class="p-2">
+                        © 2023 ECOmaps
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-sm-4 col-md-4 col-lg-3">
+                    <div class="p-2">
+                        (00) 00 00 000
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-sm-4 col-md-4 col-lg-3">
+                    <div class="p-2">
+                        contacto@ecomaps.cl
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+                    <div class="p-2">
+                        Av. Brasil 2241 oficina 3-12, Valparaíso
+                    </div>
+
+                </div>
+
+                <div class="col-1 col-sm-1 col-md-1 col-lg-1">
+                    <div class="p-2">
+                        <i class="fa-brands fa-facebook"></i>
+                    </div>
+
+                </div>
+                <div class="col-1 col-sm-1 col-md-1 col-lg-1">
+                    <div class="p-2">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+
+                </div>
+                <div class="col-1 col-sm-1 col-md-1 col-lg-1">
+                    <div class="p-2">
+                        <i class="fa-brands fa-twitter"></i>
+                    </div>
+
+                </div>
+                <div class="col-6 col-sm-6 col-md-3 col-lg-9">
+                    <div class="p-2">
+                        @ecomaps.cl
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>

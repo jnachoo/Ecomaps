@@ -40,6 +40,7 @@ $(document).ready(function(){
 
             contrasenya:{
                 required: true,
+                pwcheck: true,
                 minlength: 8
             },
 
@@ -83,6 +84,7 @@ $(document).ready(function(){
 
             contrasenya:{
                 required: "La contraseña es requerida",
+                pwcheck: "La contraseña no tiene un formato válido",
                 minlength: "La contraseña debe tener un mínimo de 8 carácteres"
             },
 
@@ -92,4 +94,9 @@ $(document).ready(function(){
             }
         }
     });
+
+    $.validator.addMethod("pwcheck",function(value, element) {
+        return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/.test(value);
+    });
+
 });

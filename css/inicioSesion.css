@@ -11,9 +11,13 @@ form ul li{
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.form-group .btn-siguiente button{
+    width: 100%;
+}
+
 .conOlvidada{
     color: #104911;
-    padding-left: 10em;
+    /*padding-left: 10em;*/
 }
 
 
