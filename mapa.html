@@ -15,6 +15,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 
+    <!--Leaflet CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   		integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   		crossorigin=""/>
+
 </head>
 
 <body>
@@ -75,11 +80,22 @@
                                             <div class="col-12">
                                                 <div class="row">
                                                     <div class="col-12 col-md-9">
-                                                        <input type="text" id="punto_reciclaje">
+                                                        <!--<input type="text" id="punto_reciclaje">-->
+                                                        <select name="select-location" id="select-location">
+                                                            <option name="opcion0" value="0">Seleccione un punto de reciclaje</option>
+                                                            <option name="opcion1" value="-33.044624, -71.612778">Brasil 2241</option>
+                                                            <option name="opcion2" value="-33.044542, -71.605786">Brasil 2950</option>	
+                                                            <option name="opcion3" value="-33.044613, -71.615641">Brasil 2021</option>
+                                                            <option name="opcion4" value="-33.046421, -71.619734">Plaza Victoria</option>
+                                                            <option name="opcion5" value="-33.047912, -71.613814">Parque Italia</option>
+                                                            <option name="opcion6" value="-33.050238, -71.610839">San Ignacio 725</option>
+                                                            <option name="opcion7" value="-33.038675, -71.628730">Plaza Sotomayor</option>
+                                                	
+                                                        </select>
                                                     </div>
-                                                    <div class="col-3 col-md-3">
+                                                    <!--<div class="col-3 col-md-3">
                                                         <button>Buscar</button>
-                                                    </div>
+                                                    </div>-->
                                                 </div>
                                                 
                                             </div>
@@ -103,12 +119,7 @@
                 </div>
 
                 <div class="col-12 col-md-6">
-                    <div class="right-section">
-                        <iframe class="mapa"
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2578.467609519125!2d-71.61285935256299!3d-33.04450351533515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2scl!4v1680226032259!5m2!1ses-419!2scl"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
+                    <div class="right-section" id="map"></div>
                 </div>
             </div>
         </div>
@@ -178,6 +189,12 @@
         </div>
     </footer>
 
+    <!--Leaflet JS-->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   		integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   		crossorigin=""></script>
+
+    <script src="js/map.js" defer></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
