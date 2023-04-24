@@ -17,7 +17,6 @@ form ul li{
 
 .conOlvidada{
     color: #104911;
-    /*padding-left: 10em;*/
 }
 
 
@@ -29,23 +28,16 @@ form ul li{
     color: #104911;
 }
 
-
-/*Responsividad Bootstrap*/
-
+/*RESPONSIVIDAD BOOSTRAP*/
 .left-section{
     background-color: #d9d9d9;
+    height: 100%;
     border-radius: 10px;
 }
 
 .right-section{
     background-color: #d9d9d9;
     border-radius: 10px;
-}
-
-
-
-.formulario{
-    padding: 0 0 0 32px;
 }
 
 .col-12 input{

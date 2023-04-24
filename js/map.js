@@ -11,7 +11,6 @@ document.getElementById('select-location').addEventListener('change',function(e)
 
     var greenIcon = L.icon({
         iconUrl: 'images/centro-de-reciclaje.png',
-    
         iconSize:     [50, 50],
         iconAnchor:   [50, 50], 
     });

@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
     $(".needs-validation").validate({
         errorClass: "is-invalid",
         validClass: "isvalid",
