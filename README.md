@@ -1,20 +1,27 @@
-# Ecomaps
-EP1.1: Análisis de funcionalidades:
+# EcomapsAng
 
-- Iniciar sesión(inicioSesion.html): El usuario que ya este registrado podra acceder a su informacion guardada donde podra ver su perfil.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.4.
 
-- Registrarse(registro.html): El usuario crea una cuenta en la página web para guardar su información y tener acceso a las funcionalidades.
+## Development server
 
-- Página principal(index.html): Es la página principal de nuestra página web la cual entregará información acerca del proyecto que fomenta la pagina.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-- Ayuda(ayuda.html): Esta sección contiene información de contacto sobre nosotros y las preguntas mas frecuentes para guiarte.
+## Code scaffolding
 
-- Perfil(perfil.html): Esta opción le mostrará al usuario los datos que se usaron para registrarse ademas de poder editarlos y editar puntos de reciclaje que este haya puesto.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-- Cambiar clave(cambiarClave.html): Esta pestaña le permitira cambiar la clave
+## Build
 
-- ECOmapa(info.html): Esta pestaña te permitira buscar los puntos de reciclaje mas cercanos a tu ubicacion cuando la ingreses, ademas con el mapa tambien podras marcar.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-- Recicla(info.html): En esta pestaña se mostraran ideas de reciclaje de la gente, ademas de ideas de macetas, composteras, etc. Tambien contiene informacion externa que llevara a enlaces como guias o videos.
+## Running unit tests
 
-Link prototopado realizado en figma: https://www.figma.com/file/50T1Sbf0PQy2vYOt2AqD8l/Prototipo-de-ECOmaps?node-id=0%3A1&t=mysAamFrKcgpD51m-1
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

@@ -1,27 +1,23 @@
-<!--CONTENEDOR-->
-<div class="container-fluid">
+ <!--CONTENEDOR-->
+ <div class="container-fluid p-0">
     <div class="row g-3">
         <!--COLUMNA IZQUIERDA-->
         <div class="col-12 col-md-6">
             <div class="left-section">
                 <h1 class="pt-3">Iniciar Sesión</h1>
                 <!--FORMULARIO-->
-                <form [formGroup]="formInicioSesion" (ngSubmit)="iniciarSesion()" class="formulario needs-validation p-5" novalidate>
+                <form class="formulario needs-validation p-5" novalidate>
                     <div class="form-group row">
                         <div class="col-12">
                             <label class="form-label">Correo Electrónico</label>
                         </div>
 
                         <div class="col-12">
-                            <input type="email" class="form-control" id="email" formControlName="email" placeholder="example@mail.com" required>
+                            <input type="email" class="form-control" id="email" name="email" required>
                         </div>
 
-                        <div *ngIf="formInicioSesion.controls['email'].getError('required') && formInicioSesion.controls['email'].touched" class="col-12 text-danger">
-                            El correo es requerido
-                        </div>
+                        <div class="col invalid-feedback">
 
-                        <div *ngIf="formInicioSesion.controls['email'].getError('email') && formInicioSesion.controls['email'].touched" class="col-12 text-danger">
-                            El formato del correo no es correcto
                         </div>
                     </div>
 
@@ -33,15 +29,12 @@
                         </div>
 
                         <div class="col-12">
-                            <input type="password" class="form-control" id="contrasenya" formControlName="password" required>
+                            <input type="password" class="form-control" id="contrasenya" name="contrasenya"
+                                required>
                         </div>
 
-                        <div *ngIf="formInicioSesion.controls['password'].getError('required') && formInicioSesion.controls['password'].touched" class="col text-danger">
-                            La contraseña es requerida
-                        </div>
+                        <div class="col invalid-feedback">
 
-                        <div *ngIf="formInicioSesion.controls['password'].getError('pattern') && formInicioSesion.controls['password'].touched" class="col text-danger">
-                            El formato de la contraseña no es correcto
                         </div>
                     </div>
 
@@ -49,13 +42,13 @@
 
                     <div class="form-group row">
                         <div class="col-4 col-md-4 btn-siguiente">
-                            <a>
+                            <a href="#">
                                 <button type="submit">Siguiente</button>
                             </a>
                         </div>
 
                         <div class="col-12 col-md-6">
-                            <a class="conOlvidada">¿Olvidaste tú contraseña?</a>
+                            <a class="conOlvidada" href="/cambiar">¿Olvidaste tú contraseña?</a>
                         </div>
 
                     </div>
@@ -64,7 +57,7 @@
 
                     <div class="form-group row">
                         <div class="col-12">
-                            <a [routerLink]="['/registro']">¿No tiene cuenta? Registrese acá</a>
+                            <a  href="/registro">¿No tiene cuenta? Registrese acá</a>
                         </div>
                     </div>
 
@@ -76,9 +69,9 @@
         <!--COLUMNA DERECHA-->
         <div class="col-12 col-md-6">
             <div class="right-section text-center p-5">
-                <img src="../../../assets/images/planta.png" class="img-fluid" alt="">
+                <img src="assets/images/planta.png" class="img-fluid" alt="">
             </div>
-
+            
         </div>
     </div>
 
