@@ -1,0 +1,20 @@
+[
+    {
+        "id":1,
+        "titulo": "Foto1",
+        "descripcion":"descripcion1",
+        "imagen":"assets/images/sequia.jpg"
+    },
+    {
+        "id":2,
+        "titulo": "Foto2",
+        "descripcion":"descripcion2",
+        "imagen":"assets/images/sequia.jpg"
+    },
+    {
+        "id":3,
+        "titulo": "Foto3",
+        "descripcion":"descripcion3",
+        "imagen":"assets/images/sequia.jpg"
+    }
+]

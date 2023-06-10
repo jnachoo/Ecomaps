@@ -1,0 +1,13 @@
+[
+    {
+        "nombre":"Juan",
+        "email": "juanexample@mail.com",
+        "rut":"10777865-4",
+        "telefono":"123456789",
+        "fechaNac":"1-1-2000",
+        "region":"Valparaiso",
+        "comuna":"Valparaiso",
+        "contrasenya":"holas123"
+
+    }
+]

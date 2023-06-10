@@ -1,10 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+//Componentes
 import { HeaderComponent } from './componentes/header/header.component';
 import { FooterComponent } from './componentes/footer/footer.component';
+
+//Paginas
 import { HomeComponent } from './pages/home/home.component';
 import { InicioSesionComponent } from './pages/inicio-sesion/inicio-sesion.component';
 import { MapasComponent } from './pages/mapas/mapas.component';
@@ -37,7 +42,8 @@ import { TresRComponent } from './pages/tres-r/tres-r.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
