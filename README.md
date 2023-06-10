@@ -1,5 +1,7 @@
 # EcomapsAng
 
+Si tiene problemas para instalar el paquete de rut-chileno, coloque la siguiente sentencia: `npm install rut-chileno --legacy-peer-deps`
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.4.
 
 ## Development server
