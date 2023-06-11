@@ -75,6 +75,19 @@ export class RegistroComponent {
 
   inputEvent(event : Event) {
     let rut = this.rutService.getRutChileForm(1, (event.target as HTMLInputElement).value)
+    var nombre: HTMLSelectElement = document.getElementById("nombre") as HTMLSelectElement;
+    var email: HTMLSelectElement = document.getElementById("email") as HTMLSelectElement;
+    var rut1: HTMLSelectElement = document.getElementById("rut") as HTMLSelectElement;
+    var telefono: HTMLSelectElement = document.getElementById("telefono") as HTMLSelectElement;
+    var fechaNacimiento: HTMLSelectElement = document.getElementById("fechaNacimiento") as HTMLSelectElement;
+    var comuna: HTMLSelectElement = document.getElementById("comuna") as HTMLSelectElement;
+    var contrasenya: HTMLSelectElement = document.getElementById("contrasenya") as HTMLSelectElement;
+    console.log(rut1)
+    console.log(nombre.value)
+    console.log(telefono.value)
+    console.log(email.value)
+    console.log(comuna.value)
+    console.log(contrasenya.value)
     if (rut)
       this.formRegistro.controls['rut'].patchValue(rut, {emitEvent :false});
   }
@@ -116,7 +129,39 @@ export class RegistroComponent {
         }
     }
   }
+  rut:string='';
+  guardarDatos() {
+    var nombre: HTMLSelectElement = document.getElementById("nombre") as HTMLSelectElement;
+    var email: HTMLSelectElement = document.getElementById("email") as HTMLSelectElement;
+    var rutt: HTMLSelectElement = document.getElementById("rut") as HTMLSelectElement;
+    var telefono: HTMLSelectElement = document.getElementById("telefono") as HTMLSelectElement;
+    var region: HTMLSelectElement = document.getElementById("region") as HTMLSelectElement;
+    var comuna: HTMLSelectElement = document.getElementById("comuna") as HTMLSelectElement;
+    var contrasenya: HTMLSelectElement = document.getElementById("contrasenya") as HTMLSelectElement;
+    var recontrasenya: HTMLSelectElement = document.getElementById("recontrasenya") as HTMLSelectElement;
 
+    const datos = {
+      nombre: nombre.value,
+      email: email.value,
+      rut: rutt.value,
+      telefono: telefono.value,
+      //fechaNacimiento: this.fechaNacimiento,
+      region: region.value,
+      comuna: comuna.value,
+      contrasenya: contrasenya.value,
+      recontrasenya: recontrasenya.value,
+    };
+
+    const blob = new Blob([JSON.stringify(datos, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'datos.json';
+    a.click();
+
+    URL.revokeObjectURL(url);
+  }
   registrarse() {
     console.log(this.formRegistro.status);
     if (this.formRegistro.status === 'VALID') {
@@ -125,3 +170,4 @@ export class RegistroComponent {
   }
 
 }
+
