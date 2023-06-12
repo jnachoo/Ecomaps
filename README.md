@@ -1,29 +1,34 @@
 # EcomapsAng
 
+## Paquetes
 Si tiene problemas para instalar el paquete de rut-chileno, coloque la siguiente sentencia: `npm install rut-chileno --legacy-peer-deps`
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.4.
+## Push de datos en el json
 
-## Development server
+Primero usa el comando json-server --watch src/assets/json/usuarios.json 
+Luego se haran los cambios cuando rellene el Registro
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Get de datos en el json
 
-## Code scaffolding
+Se ocupo con el carrusel de la pagina Home y para rellenar los puntos con las coordenadas de los puntos de reciclaje
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## EP1.1: Análisis de funcionalidades:
 
-## Build
+- Iniciar sesión(inicioSesion.html): El usuario que ya este registrado podra acceder a su informacion guardada donde podra ver su perfil.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Registrarse(registro.html): El usuario crea una cuenta en la página web para guardar su información y tener acceso a las funcionalidades.
 
-## Running unit tests
+- Página principal(index.html): Es la página principal de nuestra página web la cual entregará información acerca del proyecto que fomenta la pagina.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Ayuda(ayuda.html): Esta sección contiene información de contacto sobre nosotros y las preguntas mas frecuentes para guiarte.
 
-## Running end-to-end tests
+- Perfil(perfil.html): Esta opción le mostrará al usuario los datos que se usaron para registrarse ademas de poder editarlos y editar puntos de reciclaje que este haya puesto.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Cambiar clave(cambiarClave.html): Esta pestaña le permitira cambiar la clave
 
-## Further help
+- ECOmapa(info.html): Esta pestaña te permitira buscar los puntos de reciclaje mas cercanos a tu ubicacion cuando la ingreses, ademas con el mapa tambien podras marcar.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Recicla(info.html): En esta pestaña se mostraran ideas de reciclaje de la gente, ademas de ideas de macetas, composteras, etc. Tambien contiene informacion externa que llevara a enlaces como guias o videos.
+
+Link prototopado realizado en figma: https://www.figma.com/file/50T1Sbf0PQy2vYOt2AqD8l/Prototipo-de-ECOmaps?node-id=0%3A1&t=mysAamFrKcgpD51m-1
+
