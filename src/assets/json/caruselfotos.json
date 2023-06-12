@@ -1,20 +1,26 @@
 [
     {
         "id":1,
-        "titulo": "Foto1",
-        "descripcion":"descripcion1",
+        "titulo": "Sequia",
+        "descripcion":"Debemos de tomar conciencia, para evitar que siga ocurriendo",
         "imagen":"assets/images/sequia.jpg"
     },
     {
         "id":2,
-        "titulo": "Foto2",
-        "descripcion":"descripcion2",
-        "imagen":"assets/images/sequia.jpg"
+        "titulo": "Campo",
+        "descripcion":"Hagamos un cambio y mantengamos limpio nuestro hermosos pais",
+        "imagen":"assets/images/campo.jpg"
     },
     {
         "id":3,
-        "titulo": "Foto3",
-        "descripcion":"descripcion3",
-        "imagen":"assets/images/sequia.jpg"
+        "titulo": "Calles de basura",
+        "descripcion":"Basta de basura en las calles, seamos concientes!!",
+        "imagen":"assets/images/basura.jpg"
+    },
+    {
+        "id":4,
+        "titulo": "Calles Limpias",
+        "descripcion":"Basta de basura en las calles, seamos concientes!!",
+        "imagen":"assets/images/calle.jpg"
     }
 ]
