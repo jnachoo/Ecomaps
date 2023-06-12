@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CaruselService } from 'src/app/services/carusel.service';
 import { Carusel } from 'src/app/interfaces/carusel';
-import {DomSanitizer} from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -14,10 +14,9 @@ export class HomeComponent implements OnInit{
   
   ngOnInit(): void {
     this.ServicioCarusel.getJSON().subscribe(data=>{
+        console.log(data);
         for(let i=0;i<data.length;i++)
           this.datos.push(data[i]);
-        
-
-     });
+    });
   }
 }

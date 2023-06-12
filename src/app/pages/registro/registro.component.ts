@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { RutService } from 'rut-chileno'
 import { matchpassword } from '../../validators/matchpasswords.validator';
 import { Router } from '@angular/router';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 
 @Component({
@@ -11,7 +12,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./registro.component.scss']
 })
 export class RegistroComponent {
-
+  region="0";
+  
   comunas_1 = new Array("Arica", "Camarones", "Putre", "General Lagos");
   comunas_2 = new Array("Iquique", "Alto Hospicio", "Pozo Almonte", "Camiña", "Colchane", "Huara", "Pica");
   comunas_3 = new Array("Antofagasta", "Mejillones", "Sierra Gorda", "Taltal", "Calama", "Ollagüe", "San Pedro de Atacama", "Tocopilla", "María Elena");
@@ -31,7 +33,7 @@ export class RegistroComponent {
 
   formRegistro!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private rutService: RutService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private rutService: RutService, private router: Router, private usuarioService:UsuarioService) {
     this.formRegistro = new FormGroup({
       nombre: new FormControl('', Validators.compose([
         Validators.required,
@@ -66,62 +68,60 @@ export class RegistroComponent {
     {
       validators:matchpassword
     })
-  }
-
-  ngOnInit(): void {
-
 
   }
 
+  ngOnInit(): void {}
   inputEvent(event : Event) {
     let rut = this.rutService.getRutChileForm(1, (event.target as HTMLInputElement).value)
-    if (rut)
-      this.formRegistro.controls['rut'].patchValue(rut, {emitEvent :false});
+    if (rut) this.formRegistro.controls['rut'].patchValue(rut, {emitEvent :false});
   }
 
-  buscar_comunas(){
-    var region: HTMLSelectElement = document.getElementById("region") as HTMLSelectElement;
-    console.log(region.value)
-    
+  buscar_comunas(){    
+    if (this.region != "0") {
+        var comunas = ["\0"];
+        if(this.region == "Arica y Parinacota") comunas = this.comunas_1;
+        if(this.region == "Tarapaca") comunas = this.comunas_2;
+        if(this.region == "Antofagasta") comunas = this.comunas_3;
+        if(this.region == "Atacama") comunas = this.comunas_4;
+        if(this.region == "Coquimbo") comunas = this.comunas_5;
+        if(this.region == "Valparaiso") comunas = this.comunas_6;
+        if(this.region == "Metropolitana") comunas = this.comunas_7;
+        if(this.region == "Libertador Bernardo O'Higgins") comunas = this.comunas_8;
+        if(this.region == "Maule") comunas = this.comunas_9;
+        if(this.region == "Ñuble") comunas = this.comunas_10;
+        if(this.region == "Biobio") comunas = this.comunas_11;
+        if(this.region == "Araucania") comunas = this.comunas_12;
+        if(this.region == "Los Rios") comunas = this.comunas_13;
+        if(this.region == "Los Lagos") comunas = this.comunas_14;
+        if(this.region == "Aisen del Gral. Carlos Ibáñez del Campo") comunas = this.comunas_15;
+        if(this.region == "Magallanes") comunas = this.comunas_16;
 
-    if (region.value != "0") {
-        var comunas:any;
-        if(region.value == "1") comunas = this.comunas_1;
-        if(region.value == "2") comunas = this.comunas_2;
-        if(region.value == "3") comunas = this.comunas_3;
-        if(region.value == "4") comunas = this.comunas_4;
-        if(region.value == "5") comunas = this.comunas_5;
-        if(region.value == "6") comunas = this.comunas_6;
-        if(region.value == "7") comunas = this.comunas_7;
-        if(region.value == "8") comunas = this.comunas_8;
-        if(region.value == "9") comunas = this.comunas_9;
-        if(region.value == "10") comunas = this.comunas_10;
-        if(region.value == "11") comunas = this.comunas_11;
-        if(region.value == "12") comunas = this.comunas_12;
-        if(region.value == "13") comunas = this.comunas_13;
-        if(region.value == "14") comunas = this.comunas_14;
-        if(region.value == "15") comunas = this.comunas_15;
-        if(region.value == "16") comunas = this.comunas_16;
         var comuna: HTMLSelectElement = document.getElementById("comuna") as HTMLSelectElement;
+        
         if(comuna.length>1){
           while(comuna.length>1){
             comuna.remove(comuna.length-1);
           }
         }
+        
         for(let i=0;i < comunas.length; i++) {
             var opcion = document.createElement("option");
             opcion.text = comunas[i];
-            opcion.value = region.value.concat(i.toString());
+            opcion.value = comunas[i];
             comuna.add(opcion);
         }
     }
   }
 
   registrarse() {
-    console.log(this.formRegistro.status);
     if (this.formRegistro.status === 'VALID') {
-      this.router.navigate(['/inicioSesion'])
+      this.formRegistro.removeControl('repassword');
+      this.formRegistro.removeControl('tyc');
+      this.usuarioService.postUsuario(this.formRegistro.value).subscribe(data => {
+        console.log(data)
+      });
+      this.router.navigate(['sesion'])
     }
   }
-
 }

@@ -1,13 +1,26 @@
-[
+{
+  "usuarios": [
     {
-        "nombre":"Juan",
-        "email": "juanexample@mail.com",
-        "rut":"10777865-4",
-        "telefono":"123456789",
-        "fechaNac":"1-1-2000",
-        "region":"Valparaiso",
-        "comuna":"Valparaiso",
-        "contrasenya":"holas123"
-
+      "nombre": "Juan",
+      "email": "juanexample@gmail.com",
+      "rut": "20.981.200-2",
+      "telefono": "123789123",
+      "fechaNac": "2001-06-12",
+      "region": "Valparaiso",
+      "comuna": "Valparaiso",
+      "password": "juan123",
+      "id": 1
+    },
+    {
+      "nombre": "Pedro",
+      "email": "juanexample@gmail.com",
+      "rut": "20.981.223-1",
+      "telefono": "123123123",
+      "fechaNac": "1996-02-13",
+      "region": "Valparaiso",
+      "comuna": "Taltal",
+      "password": "aaaa11",
+      "id": 2
     }
-]
+  ]
+}

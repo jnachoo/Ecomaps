@@ -1,12 +1,51 @@
 [
-{
-    "nombre": "Brasil 2241",
-    "Latitud": -33.044624, 
-    "Longitud": -71.612778
-},
-{
-    "nombre": "Brasil 2950",
-    "Latitud": -33.044542, 
-    "Longitud": -71.605786
-}
+    {
+        "nombre": "Brasil 2241",
+        "Latitud": -33.044624, 
+        "Longitud": -71.612778,
+        "descripcion":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+        "nombre": "Brasil 2950",
+        "Latitud": -33.044542, 
+        "Longitud": -71.605786,
+        "descripcion":"hola"
+    },
+    {
+        "nombre": "Brasil 2021",
+        "Latitud": -33.044613, 
+        "Longitud": -71.615641,
+        "descripcion":"Si 123"
+
+        
+    },
+    {
+        "nombre": "Plaza Victoria",
+        "Latitud": -33.046421, 
+        "Longitud": -71.619734,
+        "descripcion":"waos :O"
+    },
+    {
+        "nombre": "Parque Italia",
+        "Latitud": -33.047912, 
+        "Longitud": -71.613814,
+        "descripcion":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor "
+
+    },
+    {
+        "nombre": "San Ignacio 725",
+        "Latitud": -33.050238,
+        "Longitud": -71.610839,
+        "descripcion":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+    },
+    {
+        "nombre": "Plaza Sotomayor",
+        "Latitud": -33.038675, 
+        "Longitud": -71.628730,
+        "descripcion":"Lorem ipsum dolor sit amet."
+    }
+    
+    
+    
 ]

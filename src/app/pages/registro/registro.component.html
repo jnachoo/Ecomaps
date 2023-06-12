@@ -1,43 +1,35 @@
-<div class="container-fluid">
+<div class="container-fluid registro">
     <h1>Registrarse</h1>
 
     <form [formGroup]="formRegistro" (ngSubmit)="registrarse()" class="formulario row g-3 p-3 needs-validation" novalidate>
-
         <div class="col-12 col-md-6" id="campos-1">
-
-            <div class="form-group row">
+            <div class="form-group row nombre">
                 <div class="col-12">
                     <label class="form-label">Nombre</label>
                 </div>
-
                 <div class="col-12">
                     <input type="text" class="form-control" id="nombre" formControlName="nombre" required>
                 </div>
-
                 <div *ngIf="formRegistro.controls['nombre'].getError('required') && formRegistro.controls['nombre'].touched" class="col text-danger">
                     El nombre es requerido
                 </div>
-
                 <div *ngIf="formRegistro.controls['nombre'].getError('pattern') && formRegistro.controls['nombre'].touched" class="col text-danger">
                     El nombre solo puede tener letras y espacios
                 </div>
             </div>
 
             <br />
-
-            <div class="form-group row">
+            
+            <div class="form-group row email">
                 <div class="col-12">
                     <label class="form-label">Correo Electrónico</label>
                 </div>
-
                 <div class="col-12">
                     <input type="email" class="form-control" id="email" formControlName="email" required>
                 </div>
-
                 <div *ngIf="formRegistro.controls['email'].getError('required') && formRegistro.controls['email'].touched" class="col text-danger">
                     El correo electrónico es requerido
                 </div>
-
                 <div *ngIf="formRegistro.controls['email'].getError('email') && formRegistro.controls['email'].touched" class="col text-danger">
                     El formato del correo electrónico no es correcto
                 </div>
@@ -45,19 +37,16 @@
 
             <br />
 
-            <div class="form-group row">
+            <div class="form-group row rut">
                 <div class="col-12">
                     <label class="form-label">Rut</label>
                 </div>
-
                 <div class="col-12">
                     <input type="text" class="form-control" id="rut" formControlName="rut" (input)="inputEvent($event)" required>
                 </div>
-
                 <div *ngIf="formRegistro.controls['rut'].getError('required') && formRegistro.controls['rut'].touched" class="col text-danger">
                     El rut es requerido
                 </div>
-
                 <div *ngIf="formRegistro.controls['rut'].getError('rutnovalido') && formRegistro.controls['rut'].touched" class="col text-danger">
                     El rut no es valido
                 </div>
@@ -65,23 +54,19 @@
 
             <br />
 
-            <div class="form-group row">
+            <div class="form-group row telefono">
                 <div class="col-12">
                     <label class="form-label">Teléfono</label>
                 </div>
-
                 <div class="col-12">
                     <input type="text" class="form-control" id="telefono" formControlName="telefono" required>
                 </div>
-
                 <div *ngIf="formRegistro.controls['telefono'].getError('required') && formRegistro.controls['telefono'].touched" class="col text-danger">
                     El teléfono es requerido
                 </div>
-
                 <div *ngIf="formRegistro.controls['telefono'].getError('pattern') && formRegistro.controls['telefono'].touched" class="col text-danger">
                     El teléfono solo puede contener dígitos
                 </div>
-
                 <div *ngIf="formRegistro.controls['telefono'].getError('minlength') && formRegistro.controls['telefono'].touched" class="col text-danger">
                     El teléfono debe ser mínimo 8
                 </div>
@@ -89,73 +74,64 @@
 
             <br />
 
-            <div class="form-group row">
+            <div class="form-group row fechaNac">
                 <div class="col-12">
                     <label class="form-label">Fecha de Nacimiento</label>
                 </div>
-
                 <div class="col-12">
                     <input type="date" class="form-control" id="fechaNac" formControlName="fechaNac" required>
                 </div>
-
                 <div *ngIf="formRegistro.controls['fechaNac'].getError('required') && formRegistro.controls['fechaNac'].touched" class="col text-danger">
                     La fecha de nacimiento es requerida
                 </div>
             </div>
-
             <br />
         </div>
 
         <div class="col-12 col-md-6" id="campos-2">
-
-            <div class="form-group row">
+            <div class="form-group row region">
                 <div class="col-12">
                     <label class="form-label">Región</label>
                 </div>
-
                 <div class="col-12">
-                    <select class="form-select" id="region" name="region" formControlName="region" (ngModelChange)="buscar_comunas()" required>
+                    <select [(ngModel)]="region" class="form-select" id="region" name="region" formControlName="region" (ngModelChange)="buscar_comunas()" required>
                         <option disabled selected>Seleccione una opcion</option>
-                        <option value="1">Arica y Parinacota</option>
-                        <option value="2">Tarapacá</option>
-                        <option value="3">Antofagasta</option>
-                        <option value="4">Atacama</option>
-                        <option value="5">Coquimbo</option>
-                        <option value="6">Valparaíso</option>
-                        <option value="7">Metropolitana</option>
-                        <option value="8">Libertador Bernardo O'Higgins</option>
-                        <option value="9">Maule</option>
-                        <option value="10">Ñuble</option>
-                        <option value="11">Biobío</option>
-                        <option value="12">Araucanía</option>
-                        <option value="13">Los Ríos</option>
-                        <option value="14">Los Lagos</option>
-                        <option value="15">Aisén del Gral. Carlos Ibáñez del Campo</option>
-                        <option value="16">Magallanes</option>
+                        <option value="Arica y Parinacota">Arica y Parinacota</option>
+                        <option value="Tarapaca">Tarapacá</option>
+                        <option value="Antofagasta">Antofagasta</option>
+                        <option value="Atacama">Atacama</option>
+                        <option value="Coquimbo">Coquimbo</option>
+                        <option value="Valparaiso">Valparaíso</option>
+                        <option value="Metropolitana">Metropolitana</option>
+                        <option value="Libertador Bernardo O'Higgins">Libertador Bernardo O'Higgins</option>
+                        <option value="Maule">Maule</option>
+                        <option value="Ñuble">Ñuble</option>
+                        <option value="Biobio">Biobío</option>
+                        <option value="Araucania">Araucanía</option>
+                        <option value="Los Rios">Los Ríos</option>
+                        <option value="Los Lagos">Los Lagos</option>
+                        <option value="Aisen del Gral. Carlos Ibáñez del Campo">Aisén del Gral. Carlos Ibáñez del Campo</option>
+                        <option value="Magallanes">Magallanes</option>
                         
                         
                     </select>
                 </div>
-
                 <div *ngIf="formRegistro.controls['region'].getError('required') && formRegistro.controls['region'].touched" class="col text-danger">
                     Selecione una opción
                 </div>
-
             </div>
 
             <br />
 
-            <div class="form-group row">
+            <div class="form-group row comuna">
                 <div class="col-12">
                     <label class="form-label">Comuna</label>
                 </div>
-
                 <div class="col-12">
                     <select class="form-select" id="comuna" name="comuna" formControlName="comuna" required>
                         <option disabled selected>Selecione una opcion</option>
                     </select>
                 </div>
-
                 <div *ngIf="formRegistro.controls['comuna'].getError('required') && formRegistro.controls['comuna'].touched" class="col text-danger">
                     Selecione una opción
                 </div>
@@ -163,19 +139,16 @@
 
             <br />
 
-            <div class="form-group row">
+            <div class="form-group row contrasenya">
                 <div class="col-12">
                     <label class="form-label">Contraseña</label>
                 </div>
-
                 <div class="col-12">
                     <input type="password" class="form-control" id="contrasenya" formControlName="password" required>
                 </div>
-
                 <div *ngIf="formRegistro.controls['password'].getError('required') && formRegistro.controls['password'].touched" class="col text-danger">
                     La contraseña es requerida
                 </div>
-
                 <div *ngIf="formRegistro.controls['password'].getError('pattern') && formRegistro.controls['password'].touched" class="col text-danger">
                     El formato de la contraseña no es correcto
                 </div>
@@ -183,23 +156,19 @@
 
             <br />
 
-            <div class="form-group row">
+            <div class="form-group row recontrasenya">
                 <div class="col-12">
                     <label class="form-label">Confirmar Contraseña</label>
                 </div>
-
                 <div class="col-12">
                     <input type="password" class="form-control" id="recontrasenya" formControlName="repassword" required>
                 </div>
-
                 <div *ngIf="formRegistro.controls['repassword'].getError('required') && formRegistro.controls['repassword'].touched" class="col text-danger">
                     La confirmacion de la contraseña es requerida
                 </div>
-
                 <div *ngIf="formRegistro.controls['repassword'].getError('pattern') && formRegistro.controls['repassword'].touched" class="col-12 text-danger">
                     El formato de la contraseña no es correcto
                 </div>
-
                 <div *ngIf="formRegistro.errors?.['passwordmatcherror'] && formRegistro.controls['repassword'].touched" class="col-12 text-danger">
                     Las contraseñas no coinciden
                 </div>
@@ -211,7 +180,6 @@
                 <div class="col-2">
                     <input type="checkbox" id="tyc" name="tyc"/>
                 </div>
-
                 <div class="col">
                     <label>Acepto términos y condiciones</label>
                 </div>
@@ -220,7 +188,7 @@
             <br />
 
             <div class="form-group row">
-                <button type="submit">Siguiente</button>
+                <button type="submit">Si</button>
             </div>
         </div>
     </form>
