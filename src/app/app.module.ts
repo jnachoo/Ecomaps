@@ -3,9 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 
 //Componentes
 import { HeaderComponent } from './componentes/header/header.component';
@@ -47,7 +49,8 @@ import { TresRComponent } from './pages/tres-r/tres-r.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule      
+    FormsModule,
+    NgxCaptchaModule   
   ],
   providers: [],
   bootstrap: [AppComponent]
