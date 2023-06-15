@@ -1,7 +1,7 @@
 # EcomapsAng
 
 ## Paquetes
-Si tiene problemas para instalar el paquete de rut-chileno, coloque la siguiente sentencia: `npm install rut-chileno --legacy-peer-deps`
+Ejecute el siguiente comando para instalar los paquetes: `npm install --legacy-peer-deps`
 
 ## Push de datos en el json
 
