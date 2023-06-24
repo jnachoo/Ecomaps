@@ -4,6 +4,8 @@ import { RutService } from 'rut-chileno'
 import { matchpassword } from '../../validators/matchpasswords.validator';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { RegistroService } from 'src/app/services/registro/registro.service';
+import { Usuario } from 'src/app/interfaces/usuario';
 
 
 @Component({
@@ -12,6 +14,9 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./registro.component.scss']
 })
 export class RegistroComponent {
+
+  user: any;
+  mostrarMensaje:boolean = false;
   region="0";
   
   comunas_1 = new Array("Arica", "Camarones", "Putre", "General Lagos");
@@ -33,7 +38,7 @@ export class RegistroComponent {
 
   formRegistro!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private rutService: RutService, private router: Router, private usuarioService:UsuarioService) {
+  constructor(private formBuilder: FormBuilder, private rutService: RutService, private router: Router, private usuarioService:UsuarioService, private registro: RegistroService) {
     this.formRegistro = new FormGroup({
       nombre: new FormControl('', Validators.compose([
         Validators.required,
@@ -57,7 +62,7 @@ export class RegistroComponent {
       comuna: new FormControl('', Validators.required),
       password: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/)
+        Validators.pattern(/^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,}$/)
       ])),
       repassword: new FormControl('', Validators.compose([
         Validators.required,
@@ -71,7 +76,8 @@ export class RegistroComponent {
 
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
   inputEvent(event : Event) {
     let rut = this.rutService.getRutChileForm(1, (event.target as HTMLInputElement).value)
     if (rut) this.formRegistro.controls['rut'].patchValue(rut, {emitEvent :false});
@@ -114,7 +120,36 @@ export class RegistroComponent {
     }
   }
 
+
   registrarse() {
+
+    let user: Usuario ={
+      email: this.formRegistro.value.email,
+      nombre: this.formRegistro.value.nombre,
+      rut: this.formRegistro.value.rut,
+      telefono: this.formRegistro.value.telefono,
+      fechaNac: this.formRegistro.value.fechaNac,
+      region: this.formRegistro.value.region,
+      comuna: this.formRegistro.value.comuna,
+      contrasenya: this.formRegistro.value.password,
+      idTipo: 1
+    }
+
+    //console.log(user.comuna)
+
+    this.registro.registro(user).subscribe(res =>{
+      let largo = Object.keys(res).length;
+      if(largo == 1){
+        this.user = res.valueOf();
+        localStorage.setItem('usuario', JSON.stringify(this.user));
+        this.router.navigate(['perfil'])
+      }else{
+        this.mostrarMensaje=true;
+      }
+    }, error => console.log(error)
+    )
+    
+    /*
     if (this.formRegistro.status === 'VALID') {
       this.formRegistro.removeControl('repassword');
       this.formRegistro.removeControl('tyc');
@@ -122,6 +157,6 @@ export class RegistroComponent {
         console.log(data)
       });
       this.router.navigate(['sesion'])
-    }
+    }*/
   }
 }

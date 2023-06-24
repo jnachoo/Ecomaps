@@ -1,6 +1,10 @@
 <div class="container-fluid registro">
     <h1>Registrarse</h1>
 
+    <div *ngIf="mostrarMensaje" class="alert alert-danger" role="alert">
+        La cuenta existe
+    </div>
+
     <form [formGroup]="formRegistro" (ngSubmit)="registrarse()" class="formulario row g-3 p-3 needs-validation" novalidate>
         <div class="col-12 col-md-6" id="campos-1">
             <div class="form-group row nombre">

@@ -5,6 +5,10 @@
         <div class="col-12 col-md-6">
             <div class="left-section">
                 <h1 class="pt-3">Iniciar Sesión</h1>
+
+                <div *ngIf="mostrarMensaje" class="alert alert-danger" role="alert">
+                    La cuenta no existe
+                </div>
                 <!--FORMULARIO-->
                 <form #form="ngForm" [formGroup]="formInicioSesion" (ngSubmit)="iniciarSesion()" class="formulario needs-validation p-5" novalidate>
                     <div class="form-group row">
