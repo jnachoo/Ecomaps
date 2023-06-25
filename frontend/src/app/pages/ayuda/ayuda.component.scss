@@ -8,13 +8,15 @@ section{
 .centro-de-ayuda{
     padding-left: 3%;
     padding-top: 2%;
+    padding-bottom: 3%;
     background-color: #D9D9D9;
     border-radius: 10px;
 }
 
 .preguntas-frecuentes {
-    padding-left: 3%;
+    padding-left: 2%;
     padding-top: 2%;
+    padding-bottom: 2%;
     background-color: #D9D9D9;
     border-radius: 10px;
 }
@@ -22,8 +24,14 @@ section{
 .imagen-ayuda {
     width: 30%;
     height: 30%;
+    margin-left: 60%;
 }
 
 select {
     width: 80%
+}
+
+.accordion-body{
+    background-color: rgb(4, 106, 4);
+    color: azure;
 }

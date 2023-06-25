@@ -14,6 +14,35 @@ router.post('/inicioSesion', (req, res) =>{
         }
     })
 });
+router.post('/cambiaClave', (req,res)=>{
+    const email = req.body.email;
+    const contrasenya = req.body.contrasenya;
+    const recontrasenya = req.body.recontrasenya;
+    let sql = `select * FROM usuario WHERE email ='${email}'`;
+    conexion.query(sql, (error, results, fields)=>{
+        if(error)throw error;
+        else{
+            if(results.length>0){
+                
+                sql2 =`update Usuario set contrasenya='${contrasenya}' where email='${email}'`;
+                conexion.query(sql2, (error,results,fields)=>{
+                    if(error)throw error;
+                    if(contrasenya==recontrasenya){
+                        console.log("1");
+                        res.json({message: true, results});
+                    }else{
+                        console.log("2");
+                        res.json({message:2})
+                    }
+                })
+            }
+            else{
+                res.json({message: 3});
+                console.log("3");
+            }
+        }
+    })
+})
 
 router.post('/registro', (req, res) =>{
     const email = req.body.email;

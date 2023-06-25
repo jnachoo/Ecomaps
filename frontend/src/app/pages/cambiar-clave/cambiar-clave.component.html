@@ -3,7 +3,42 @@
         <div class="col">
             <div class="seccion">
                 <h1>CAMBIAR CLAVE</h1>
-                
+                <form id="form">
+                    <ul id="campos">
+                        <li>
+                            <div class="col-md">
+                                <label for="email" class="form-label">Correo Electrónico</label>
+                                <input type="email" class="form-control" id="email"  name="email" required>
+                                <div class="invalid-feedback">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="col-md">
+                                <label for="contrasenya" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="contrasenya" name="contrasenya" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
+                                <div  class="invalid-feedback">
+                                </div>
+                            
+                            </div>
+                        </li>
+                        <li>
+                            <div class="col-md">
+                                <label for="recontrasenya" class="form-label">Confirmar Contraseña</label>
+                                <input type="password" class="form-control" id="recontrasenya" name="recontrasenya" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
+                                <div  class="invalid-feedback">
+                                
+                                </div>
+                            
+                            </div>
+                        </li>
+                        <li>
+                            <div class="col-12" id="a">
+                                <button class="btn btn-primary" type="submit">Cambiar Contraseña</button>
+                            </div>
+                        </li>
+                   </ul>
+                </form>
                 <p>...proximamente</p>
             </div>
         </div>
