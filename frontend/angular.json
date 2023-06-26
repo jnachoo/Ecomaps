@@ -74,8 +74,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Ecompas-Ang:build",
-            "proxyConfig": "proxy.conf.json"
+            "browserTarget": "Ecompas-Ang:build"
           },
           "configurations": {
             "production": {

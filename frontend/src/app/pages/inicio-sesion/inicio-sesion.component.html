@@ -5,9 +5,12 @@
         <div class="col-12 col-md-6">
             <div class="left-section">
                 <h1 class="pt-3">Iniciar Sesión</h1>
-
-                <div *ngIf="mostrarMensaje" class="alert alert-danger" role="alert">
-                    La cuenta no existe
+                <!-- MENSAJES DESDE BACKEND -->
+                <div *ngIf="error_id==1" class="alert alert-danger" role="alert">
+                    La cuenta con este email no existe
+                </div>
+                <div *ngIf="error_id==2" class="alert alert-danger" role="alert">
+                    Contraseña Incorrecta
                 </div>
                 <!--FORMULARIO-->
                 <form #form="ngForm" [formGroup]="formInicioSesion" (ngSubmit)="iniciarSesion()" class="formulario needs-validation p-5" novalidate>
@@ -37,14 +40,14 @@
                         </div>
 
                         <div class="col-12">
-                            <input type="password" class="form-control" id="contrasenya" formControlName="password" required>
+                            <input type="password" class="form-control" id="contrasenya" formControlName="contrasenya" required>
                         </div>
 
-                        <div *ngIf="formInicioSesion.controls['password'].getError('required') && (formInicioSesion.controls['password'].touched || buttonClicked == true) " class="col text-danger">
+                        <div *ngIf="formInicioSesion.controls['contrasenya'].getError('required') && (formInicioSesion.controls['contrasenya'].touched || buttonClicked == true) " class="col text-danger">
                             La contraseña es requerida
                         </div>
 
-                        <div *ngIf="formInicioSesion.controls['password'].getError('pattern') && formInicioSesion.controls['password'].touched" class="col text-danger">
+                        <div *ngIf="formInicioSesion.controls['contrasenya'].getError('pattern') && formInicioSesion.controls['contrasenya'].touched" class="col text-danger">
                             El formato de la contraseña no es correcto
                         </div>
                     </div>
@@ -76,7 +79,7 @@
 
                     <br />
 
-                    <div class="form-group row">
+                    <div class=" row">
                         <div class="col-12">
                             <a  href="/registro">¿No tiene cuenta? Registrese acá</a>
                         </div>

@@ -1,37 +1,58 @@
-<div class="container-fluid">
+<div class="container-fluid cambiarclave">
     <div class="row">
         <div class="col">
             <div class="seccion">
                 <h1>CAMBIAR CLAVE</h1>
-                <form id="form">
+                <div *ngIf="error_id==2" class="alert alert-danger" role="alert">
+                    La cuenta con este email no existe
+                </div>
+                <form #form="ngForm" [formGroup]="formCambiarClave" (ngSubmit)="cambiarClave()" class="formulario needs-validation p-5" novalidate>
                     <ul id="campos">
-                        <li>
-                            <div class="col-md">
-                                <label for="email" class="form-label">Correo Electrónico</label>
-                                <input type="email" class="form-control" id="email"  name="email" required>
-                                <div class="invalid-feedback">
-                                </div>
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <label class="form-label">Correo Electrónico</label>
                             </div>
-                        </li>
-                        <li>
-                            <div class="col-md">
-                                <label for="contrasenya" class="form-label">Contraseña</label>
-                                <input type="password" class="form-control" id="contrasenya" name="contrasenya" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
-                                <div  class="invalid-feedback">
-                                </div>
-                            
+                            <div class="col-12">
+                                <input type="email" class="form-control" id="email" formControlName="email" placeholder="example@mail.com" required>
+                            </div>   
+                            <div *ngIf="formCambiarClave.controls['email'].getError('required') && (formCambiarClave.controls['email'].touched)" class="col-12 text-danger">
+                                El correo es requerido
+                            </div>    
+                            <div *ngIf="formCambiarClave.controls['email'].getError('email') && formCambiarClave.controls['email'].touched" class="col-12 text-danger">
+                                El formato del correo no es correcto
                             </div>
-                        </li>
-                        <li>
-                            <div class="col-md">
-                                <label for="recontrasenya" class="form-label">Confirmar Contraseña</label>
-                                <input type="password" class="form-control" id="recontrasenya" name="recontrasenya" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
-                                <div  class="invalid-feedback">
-                                
-                                </div>
-                            
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <label class="form-label">Contraseña</label>
                             </div>
-                        </li>
+                            <div class="col-12">
+                                <input type="password" class="form-control" id="contrasenya" formControlName="contrasenya" required>
+                            </div>
+                            <div *ngIf="formCambiarClave.controls['contrasenya'].getError('required') && (formCambiarClave.controls['contrasenya'].touched) " class="col text-danger">
+                                La contraseña es requerida
+                            </div>
+                            <div *ngIf="formCambiarClave.controls['contrasenya'].getError('pattern') && formCambiarClave.controls['contrasenya'].touched" class="col text-danger">
+                                El formato de la contraseña no es correcto
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <label class="form-label">Contraseña Nueva</label>
+                            </div>
+                            <div class="col-12">
+                                <input type="password" class="form-control" id="recontrasenya" formControlName="recontrasenya" required>
+                            </div>
+                            <div *ngIf="formCambiarClave.controls['recontrasenya'].getError('required') && (formCambiarClave.controls['recontrasenya'].touched) " class="col text-danger">
+                                La contraseña nueva es requerida
+                            </div>
+                            <div *ngIf="formCambiarClave.controls['recontrasenya'].getError('pattern') && formCambiarClave.controls['recontrasenya'].touched" class="col text-danger">
+                                El formato de la nueva contraseña no es correcto
+                            </div>
+                            <div *ngIf="formCambiarClave.errors?.['passwordmatcherror'] && formCambiarClave.controls['recontrasenya'].touched" class="col-12 text-danger">
+                                Las contraseñas no pueden coincidir
+                            </div>
+                        </div>
                         <li>
                             <div class="col-12" id="a">
                                 <button class="btn btn-primary" type="submit">Cambiar Contraseña</button>
@@ -39,7 +60,6 @@
                         </li>
                    </ul>
                 </form>
-                <p>...proximamente</p>
             </div>
         </div>
     </div>

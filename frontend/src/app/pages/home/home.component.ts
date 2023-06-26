@@ -14,9 +14,9 @@ export class HomeComponent implements OnInit{
   
   ngOnInit(): void {
     this.ServicioCarusel.getJSON().subscribe(data=>{
-        console.log(data);
-        for(let i=0;i<data.length;i++)
+        for(let i=0;i<data.length;i++){
           this.datos.push(data[i]);
+        }
     });
   }
 }

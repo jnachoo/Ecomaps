@@ -4,8 +4,6 @@ import { RutService } from 'rut-chileno'
 import { matchpassword } from '../../validators/matchpasswords.validator';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { RegistroService } from 'src/app/services/registro/registro.service';
-import { Usuario } from 'src/app/interfaces/usuario';
 
 
 @Component({
@@ -38,7 +36,11 @@ export class RegistroComponent {
 
   formRegistro!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private rutService: RutService, private router: Router, private usuarioService:UsuarioService, private registro: RegistroService) {
+  constructor(
+    private formBuilder: FormBuilder, 
+    private rutService: RutService, 
+    private router: Router, 
+    private usuarioService:UsuarioService) {
     this.formRegistro = new FormGroup({
       nombre: new FormControl('', Validators.compose([
         Validators.required,
@@ -120,43 +122,43 @@ export class RegistroComponent {
     }
   }
 
+  hola(){}
+  // registrarse() {
 
-  registrarse() {
+  //   let user: Usuario ={
+  //     email: this.formRegistro.value.email,
+  //     nombre: this.formRegistro.value.nombre,
+  //     rut: this.formRegistro.value.rut,
+  //     telefono: this.formRegistro.value.telefono,
+  //     fechaNac: this.formRegistro.value.fechaNac,
+  //     region: this.formRegistro.value.region,
+  //     comuna: this.formRegistro.value.comuna,
+  //     contrasenya: this.formRegistro.value.password,
+  //     idTipo: 1
+  //   }
 
-    let user: Usuario ={
-      email: this.formRegistro.value.email,
-      nombre: this.formRegistro.value.nombre,
-      rut: this.formRegistro.value.rut,
-      telefono: this.formRegistro.value.telefono,
-      fechaNac: this.formRegistro.value.fechaNac,
-      region: this.formRegistro.value.region,
-      comuna: this.formRegistro.value.comuna,
-      contrasenya: this.formRegistro.value.password,
-      idTipo: 1
-    }
+  //   //console.log(user.comuna)
 
-    //console.log(user.comuna)
-
-    this.registro.registro(user).subscribe(res =>{
-      let largo = Object.keys(res).length;
-      if(largo == 1){
-        this.user = res.valueOf();
-        localStorage.setItem('usuario', JSON.stringify(this.user));
-        this.router.navigate(['perfil'])
-      }else{
-        this.mostrarMensaje=true;
-      }
-    }, error => console.log(error)
-    )
+  //   this.registro.registro(user).subscribe(res =>{
+  //     let largo = Object.keys(res).length;
+  //     if(largo == 1){
+  //       this.user = res.valueOf();
+  //       localStorage.setItem('usuario', JSON.stringify(this.user));
+  //       this.router.navigate(['perfil'])
+  //     }else{
+  //       this.mostrarMensaje=true;
+  //     }
+  //   }, error => console.log(error)
+  //   )
     
-    /*
-    if (this.formRegistro.status === 'VALID') {
-      this.formRegistro.removeControl('repassword');
-      this.formRegistro.removeControl('tyc');
-      this.usuarioService.postUsuario(this.formRegistro.value).subscribe(data => {
-        console.log(data)
-      });
-      this.router.navigate(['sesion'])
-    }*/
-  }
+  //   /*
+  //   if (this.formRegistro.status === 'VALID') {
+  //     this.formRegistro.removeControl('repassword');
+  //     this.formRegistro.removeControl('tyc');
+  //     this.usuarioService.postUsuario(this.formRegistro.value).subscribe(data => {
+  //       console.log(data)
+  //     });
+  //     this.router.navigate(['sesion'])
+  //   }*/
+  // }
 }

@@ -12,13 +12,16 @@ import { ReduceComponent } from './pages/reduce/reduce.component';
 import { ReutilizaComponent } from './pages/reutiliza/reutiliza.component';
 import { ReciclaComponent } from './pages/recicla/recicla.component';
 
+import { authGuard } from './guards/auth.guard';
+import { Path } from 'leaflet';
+
 const routes: Routes = [
   {path:"",component:HomeComponent},
   {path:"sesion",component:InicioSesionComponent},
   {path:"mapas",component:MapasComponent},
   {path:"ayuda",component:AyudaComponent},
   {path:"cambiar",component:CambiarClaveComponent},
-  {path:"perfil",component:PerfilComponent},
+  {path:"perfil",component:PerfilComponent,canActivate:[authGuard]},
   {path:"registro",component:RegistroComponent},
   {path:"reduce",component:ReduceComponent},
   {path:"reutiliza",component:ReutilizaComponent},

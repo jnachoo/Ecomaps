@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import { Router } from '@angular/router'
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { differentpassword } from '../../validators/differentpasswords.validator';
+
 
 @Component({
   selector: 'app-cambiar-clave',
@@ -6,39 +11,45 @@ import { Component } from '@angular/core';
   styleUrls: ['./cambiar-clave.component.scss']
 })
 export class CambiarClaveComponent {
-  email: string;
-  password: string;
-  confirmPassword: string;
+  formCambiarClave!: FormGroup;
+  error_id:any;
 
-  constructor() {
-    this.email = '';
-    this.password = '';
-    this.confirmPassword = '';
+  constructor( 
+    private usuarioService:UsuarioService,
+    private formBuilder: FormBuilder, 
+    private router: Router) {}
+  
+  ngOnInit(): void {
+    this.formCambiarClave= new FormGroup({
+      email: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.email
+      ])),
+      contrasenya: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.pattern(/^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,}$/)
+      ])),
+      recontrasenya: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.pattern(/^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,}$/)
+      ])),
+    },
+    {
+      validators:differentpassword
+    })
+    
+
   }
 
   cambiarClave() {
-    // Aquí puedes realizar la llamada a la API en el backend para cambiar la contraseña
-    // utilizando los valores de this.email, this.password y this.confirmPassword
-    // Puedes utilizar el método HTTP correspondiente (por ejemplo, HttpClient en Angular)
-    // para enviar una solicitud POST al endpoint adecuado de la API.
-
-    // Por ejemplo:
-    /*
-    this.http.post('/api/cambiar-contraseña', {
-      email: this.email,
-      password: this.password
-    }).subscribe(response => {
-      // Aquí puedes manejar la respuesta de la API
-      console.log(response);
-    }, error => {
-      // Aquí puedes manejar el error en caso de que la solicitud falle
-      console.error(error);
-    });
-    */
-
-    // Recuerda importar el módulo HttpClient en tu componente para utilizarlo
-
-    // Luego de realizar la solicitud a la API, puedes hacer cualquier acción adicional que necesites,
-    // como mostrar un mensaje de éxito o redirigir al usuario a otra página.
+    if (this.formCambiarClave.status === 'VALID') {
+      console.log(this.formCambiarClave.value)
+      this.usuarioService.cambiarClaveUsuario(this.formCambiarClave.value).subscribe(data => {
+        this.error_id=data.id;
+        if(this.error_id==1){
+          this.usuarioService.cerrarSesion();
+        }
+      }); 
+    }
   }
 }
