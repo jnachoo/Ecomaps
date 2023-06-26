@@ -36,5 +36,10 @@ export class UsuarioService {
     localStorage.removeItem('userData');
     this.router.navigate(['sesion']);
   }
+  obtenerRol(){
+    let data = '[' +localStorage.getItem('userData')+']';
+    var json = JSON.parse(data)
+    return(json[0].idTipo);
+  }
 }
 

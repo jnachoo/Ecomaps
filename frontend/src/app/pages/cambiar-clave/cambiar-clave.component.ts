@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router'
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { differentpassword } from '../../validators/differentpasswords.validator';
-
 
 @Component({
   selector: 'app-cambiar-clave',
@@ -15,9 +13,7 @@ export class CambiarClaveComponent {
   error_id:any;
 
   constructor( 
-    private usuarioService:UsuarioService,
-    private formBuilder: FormBuilder, 
-    private router: Router) {}
+    private usuarioService:UsuarioService,) {}
   
   ngOnInit(): void {
     this.formCambiarClave= new FormGroup({
@@ -33,9 +29,6 @@ export class CambiarClaveComponent {
         Validators.required,
         Validators.pattern(/^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,}$/)
       ])),
-    },
-    {
-      validators:differentpassword
     })
     
 
@@ -43,7 +36,6 @@ export class CambiarClaveComponent {
 
   cambiarClave() {
     if (this.formCambiarClave.status === 'VALID') {
-      console.log(this.formCambiarClave.value)
       this.usuarioService.cambiarClaveUsuario(this.formCambiarClave.value).subscribe(data => {
         this.error_id=data.id;
         if(this.error_id==1){

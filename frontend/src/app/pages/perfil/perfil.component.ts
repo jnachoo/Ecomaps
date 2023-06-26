@@ -17,7 +17,9 @@ export class PerfilComponent {
       this.user=JSON.parse(data);
     }
   }
-  
+  apretame(){
+    this.usuarioService.obtenerRol();
+  }
   cerrarSesion(){
     this.usuarioService.cerrarSesion();
   }

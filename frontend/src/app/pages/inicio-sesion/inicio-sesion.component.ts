@@ -43,10 +43,11 @@ export class InicioSesionComponent {
   checkCaptcha() {
     this.captchaResolved = true;
   }
-
+  
   iniciarSesion() {
     if (this.formInicioSesion.status === 'VALID') {
       this.usuarioService.inicioSesionUsuario(this.formInicioSesion.value).subscribe(data => {
+          console.log(data.id)
           switch(data.id){
               case 1:
                 this.error_id=data.id;

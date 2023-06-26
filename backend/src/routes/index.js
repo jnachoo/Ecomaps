@@ -1,6 +1,13 @@
 const { Router } = require('express');
 const router = Router();
 const bodyParser = require('body-parser');
+var encriptacion_1 = require("../encriptacion");
+const CryptoJS = require("crypto-js");
+
+// (B) SECRET KEY
+var key = "ASECRET";
+
+
 var jsonParser = bodyParser.json()
 
 const jwt = require('jsonwebtoken');
@@ -21,82 +28,134 @@ connection.connect(function (err) {
     console.log('Conexión establecida ' + connection.threadId);
 });
 
-
-router.post("/registro",jsonParser,(req, res) => {
-    let email=req.body.email;
-    let password=req.body.password;
-    console.log(email, password);
+router.post("/registro",jsonParser, (req, res) =>{
+    let email = req.body.email;
+    let nombre = req.body.nombre;
+    let rut = req.body.rut;
+    let telefono = req.body.telefono;
+    let fechaNac = req.body.fechaNac;
+    let region = req.body.region;
+    let comuna = req.body.comuna;
+    let contrasenya = CryptoJS.AES.encrypt(req.body.contrasenya, key).toString();
     
-    connection.query("INSERT INTO usuarios (email,password) VALUES (?,?)",
-        [email,password],function(error,results,fields){
-        if (error) throw error;
-        const token = jwt.sign({id: results.id}, 'secretkey');
-        return res.status(500).json({"token":token, "resultados":results});
-    });
-});
+    let idTipo = 1;
+    
+
+    let sql1 = `select * FROM usuario WHERE email ='${email}'`;
+    connection.query(sql1, (error, results, fields) =>{
+        if(error) throw error;
+        else{
+            if(results==""){
+                let sql2 = `insert into Usuario values ('${email}', '${nombre}', '${rut}', '${telefono}', '${fechaNac}', '${region}', '${comuna}', '${contrasenya}', ${idTipo})`;
+                connection.query(sql2, function(error, results, fields){
+                    if(error) throw error;
+                    else {
+                        res.json({"id":1});
+                    }
+                })
+
+            }else res.json({"id":2});
+        }
+    })
+})
+
 router.post("/iniciosesion",jsonParser,(req, res) => {
     let email=req.body.email;
-    let contrasenya=req.body.contrasenya;
-    console.log(email, contrasenya);
+    let contrasenya=req.body.contrasenya
+    let contraEncriptada;
 
     connection.query("select * from usuario where email=?",[email],function(error,results,fields){  
         if (error) throw error;
         if(results=="") res.json({"id":1});
         else{
-            connection.query("select * from usuario where contrasenya=?",[contrasenya],function(error,results,fields){  
-                if (error) throw error;
-                if(results=="") res.json({"id":2});
-            });
+            contraEncriptada=results[0].contrasenya
+            let decrypted = CryptoJS.AES.decrypt(contraEncriptada, key);
+            let contraDesencriptada = decrypted.toString(CryptoJS.enc.Utf8);
+            if (contraDesencriptada!=contrasenya){
+                connection.query("select * from usuario where contrasenya=?",[contrasenya],function(error,results,fields){  
+                    if (error) throw error;
+                    if(results=="") res.json({"id":2});
+                });
+            }
+            else{
+                connection.query("select * from usuario where  email=? and contrasenya=?",[email,contraEncriptada],function(error,results,fields){  
+                    if (error) throw error;
+                    if(results!="") {
+                        
+                        const token = jwt.sign({id: results[0].idTipo}, 'secretkey');
+                        return res.status(200).json({"id":3,"token":token, "resultados":results});
+                    }
+                });
+            }
+            
         }
     });
-    connection.query("select * from usuario where  email=? and contrasenya=?",[email,contrasenya],function(error,results,fields){  
-        if (error) throw error;
-        if(results!="") {
-            
-            const token = jwt.sign({id: results[0].idTipo}, 'secretkey');
-            return res.status(200).json({"id":3,"token":token, "resultados":results});
-        }
-    })
+    
 });
 
 router.post('/cambiarclave', jsonParser,(req,res)=>{
-    const email = req.body.email;
-    const contrasenya = req.body.contrasenya;
-    const recontrasenya = req.body.recontrasenya;
-    
-    let sql = `select * FROM usuario WHERE email ='${email}'`;
-    connection.query(sql, (error, results, fields)=>{
-        if(error)throw error;
-        else{
-            if(results!=""){
-                sql2 =`update Usuario set contrasenya='${recontrasenya}' where email='${email}'`;
-                connection.query(sql2, (error,results,fields)=>{
-                    if(error)throw error;
-                    else res.json({"id":1});
-                })
+    let email = req.body.email;
+    if(req.body.contrasenya==req.body.recontrasenya){
+        res.json({"id":3});
+    }
+    else{
+        let recontrasenya=CryptoJS.AES.encrypt(req.body.recontrasenya, key).toString();
+        let sql = `select * FROM usuario WHERE email ='${email}'`;
+        connection.query(sql, (error, results, fields)=>{
+            if(error)throw error;
+            else{
+                if(results!=""){
+                    sql2 =`update Usuario set contrasenya='${recontrasenya}' where email='${email}'`;
+                    connection.query(sql2, (error,results,fields)=>{
+                        if(error)throw error;
+                        else res.json({"id":1});
+                    })
+                }
+                else res.json({"id":2});
             }
-            else res.json({"id":2});
+        })
+    }
+    
+})
+
+//Modificar
+// Obtener puntos de reciclaje
+router.get('/puntosReciclaje', (req, res) =>{
+    let sql = 'select * from PuntoReciclaje';
+    connection.query(sql, (error, results, fields) =>{
+        if(error) throw error;
+        else{
+            res.json(results);
         }
     })
 })
+//Actualizar un usuario
+router.put('/actualizarusuario', (req,res)=>{
+    const email = req.body.email;
+    const telefono = req.body.telefono;
+    const region = req.body.region;
+    const comuna = req.body.comuna;
+    const contrasenya = req.body.contrasenya;
+    let sql = `update Usuario set telefono='${telefono}', region='${region}', comuna='${comuna}', contrasenya='${contrasenya}' where email='${email}'`;
 
-router.get("/watefok",verifyToken,jsonParser,(req,res)=>{
-    res.json(
-        {
-            id:1,
-            descripcion:"hola"
-        },
-        {
-            id:2,
-            descripcion:"hola"
-        },
-        {
-            id:3,
-            descripcion:"hola"
+    connection.query(sql, (error, results, fields) =>{
+        if(error) throw error;
+        else{
+            res.json({status: "cambios realizados"})
         }
-    );
+    });
 });
-
+//Eliminar un usuario
+router.delete('/eliminarusuario',verifyToken ,(req, res) =>{
+    const nombre = req.body.nombre;
+    let sql = `delete from PuntoReciclaje where nombre='${nombre}'`;
+    connection.query(sql, (error, results, fields) =>{
+        if(error) throw error;
+        else{
+            res.json({status: "punto eliminado"})
+        }
+    })
+});
 module.exports = router;
 
 function verifyToken(req,res, next){

@@ -13,15 +13,23 @@ import { ReutilizaComponent } from './pages/reutiliza/reutiliza.component';
 import { ReciclaComponent } from './pages/recicla/recicla.component';
 
 import { authGuard } from './guards/auth.guard';
+import { roleGuard } from './guards/role.guard';
 import { Path } from 'leaflet';
 
 const routes: Routes = [
-  {path:"",component:HomeComponent},
+  {path:"",pathMatch:"full",redirectTo:"home"},
+  {path:"home",component:HomeComponent},
   {path:"sesion",component:InicioSesionComponent},
   {path:"mapas",component:MapasComponent},
   {path:"ayuda",component:AyudaComponent},
   {path:"cambiar",component:CambiarClaveComponent},
-  {path:"perfil",component:PerfilComponent,canActivate:[authGuard]},
+  {
+    path:"perfil",component:PerfilComponent,
+    canActivate:[authGuard,roleGuard],
+    data:{
+      role:2
+    }
+  },
   {path:"registro",component:RegistroComponent},
   {path:"reduce",component:ReduceComponent},
   {path:"reutiliza",component:ReutilizaComponent},

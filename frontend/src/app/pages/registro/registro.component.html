@@ -1,11 +1,11 @@
 <div class="container-fluid registro">
     <h1>Registrarse</h1>
 
-    <div *ngIf="mostrarMensaje" class="alert alert-danger" role="alert">
+    <div *ngIf="error_id==2" class="alert alert-danger" role="alert">
         La cuenta existe
     </div>
 
-    <form [formGroup]="formRegistro" (ngSubmit)="hola()" class="formulario row g-3 p-3 needs-validation" novalidate>
+    <form [formGroup]="formRegistro" (ngSubmit)="registrarse()" class="formulario row g-3 p-3 needs-validation" novalidate>
         <div class="col-12 col-md-6" id="campos-1">
             <div class="form-group row nombre">
                 <div class="col-12">
@@ -165,15 +165,15 @@
                     <label class="form-label">Confirmar Contraseña</label>
                 </div>
                 <div class="col-12">
-                    <input type="password" class="form-control" id="recontrasenya" formControlName="repassword" required>
+                    <input type="password" class="form-control" id="recontrasenya" formControlName="recontrasenya" required>
                 </div>
-                <div *ngIf="formRegistro.controls['repassword'].getError('required') && formRegistro.controls['repassword'].touched" class="col text-danger">
+                <div *ngIf="formRegistro.controls['recontrasenya'].getError('required') && formRegistro.controls['recontrasenya'].touched" class="col-12 text-danger">
                     La confirmacion de la contraseña es requerida
                 </div>
-                <div *ngIf="formRegistro.controls['repassword'].getError('pattern') && formRegistro.controls['repassword'].touched" class="col-12 text-danger">
+                <div *ngIf="formRegistro.controls['recontrasenya'].getError('pattern') && formRegistro.controls['recontrasenya'].touched" class="col-12 text-danger">
                     El formato de la contraseña no es correcto
                 </div>
-                <div *ngIf="formRegistro.errors?.['passwordmatcherror'] && formRegistro.controls['repassword'].touched" class="col-12 text-danger">
+                <div *ngIf="formRegistro.errors?.['passwordmatcherror'] && formRegistro.controls['recontrasenya'].touched" class="col-12 text-danger">
                     Las contraseñas no coinciden
                 </div>
             </div>
@@ -192,7 +192,7 @@
             <br />
 
             <div class="form-group row">
-                <button type="submit">Si</button>
+                <button type="submit">Registrarse</button>
             </div>
         </div>
     </form>

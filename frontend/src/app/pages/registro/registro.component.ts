@@ -12,7 +12,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./registro.component.scss']
 })
 export class RegistroComponent {
-
+  error_id:any;
   user: any;
   mostrarMensaje:boolean = false;
   region="0";
@@ -66,9 +66,9 @@ export class RegistroComponent {
         Validators.required,
         Validators.pattern(/^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,}$/)
       ])),
-      repassword: new FormControl('', Validators.compose([
+      recontrasenya: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/)
+        Validators.pattern(/^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,}$/)
       ])),
       tyc: new FormControl(false, Validators.required),
     },
@@ -122,43 +122,17 @@ export class RegistroComponent {
     }
   }
 
-  hola(){}
-  // registrarse() {
-
-  //   let user: Usuario ={
-  //     email: this.formRegistro.value.email,
-  //     nombre: this.formRegistro.value.nombre,
-  //     rut: this.formRegistro.value.rut,
-  //     telefono: this.formRegistro.value.telefono,
-  //     fechaNac: this.formRegistro.value.fechaNac,
-  //     region: this.formRegistro.value.region,
-  //     comuna: this.formRegistro.value.comuna,
-  //     contrasenya: this.formRegistro.value.password,
-  //     idTipo: 1
-  //   }
-
-  //   //console.log(user.comuna)
-
-  //   this.registro.registro(user).subscribe(res =>{
-  //     let largo = Object.keys(res).length;
-  //     if(largo == 1){
-  //       this.user = res.valueOf();
-  //       localStorage.setItem('usuario', JSON.stringify(this.user));
-  //       this.router.navigate(['perfil'])
-  //     }else{
-  //       this.mostrarMensaje=true;
-  //     }
-  //   }, error => console.log(error)
-  //   )
-    
-  //   /*
-  //   if (this.formRegistro.status === 'VALID') {
-  //     this.formRegistro.removeControl('repassword');
-  //     this.formRegistro.removeControl('tyc');
-  //     this.usuarioService.postUsuario(this.formRegistro.value).subscribe(data => {
-  //       console.log(data)
-  //     });
-  //     this.router.navigate(['sesion'])
-  //   }*/
-  // }
+  registrarse() {
+    if (this.formRegistro.status === 'VALID') {
+        this.formRegistro.removeControl('recontrasenya');
+        this.formRegistro.removeControl('tyc');
+        this.usuarioService.registroUsuario(this.formRegistro.value).subscribe(data => {
+          this.error_id=data.id;
+          console.log("id: "+data.id)
+          if (this.error_id==1) this.router.navigate(['sesion']);
+          
+        });
+    }    
+  }
+  
 }

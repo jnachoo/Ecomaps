@@ -7,7 +7,7 @@ Se ocupo mysql con la aplicacion Xampp
 ## Paquetes Backend
 
 npm init -y
-npm install body-parser cors express jsonwebtoken mysql
+npm install body-parser cors express jsonwebtoken mysql crypto-js
 npm install nodemon -D
 
 ## Paquetes Frontend
