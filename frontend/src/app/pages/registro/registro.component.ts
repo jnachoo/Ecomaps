@@ -37,10 +37,13 @@ export class RegistroComponent {
   formRegistro!: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder, 
     private rutService: RutService, 
     private router: Router, 
     private usuarioService:UsuarioService) {
+
+  }
+
+  ngOnInit(): void {
     this.formRegistro = new FormGroup({
       nombre: new FormControl('', Validators.compose([
         Validators.required,
@@ -62,7 +65,7 @@ export class RegistroComponent {
       fechaNac: new FormControl('', Validators.required),
       region: new FormControl('', Validators.required),
       comuna: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.compose([
+      contrasenya: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern(/^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,}$/)
       ])),
@@ -75,10 +78,6 @@ export class RegistroComponent {
     {
       validators:matchpassword
     })
-
-  }
-
-  ngOnInit(): void {
   }
   inputEvent(event : Event) {
     let rut = this.rutService.getRutChileForm(1, (event.target as HTMLInputElement).value)

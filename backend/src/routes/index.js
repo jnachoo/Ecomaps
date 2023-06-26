@@ -1,7 +1,6 @@
 const { Router } = require('express');
 const router = Router();
 const bodyParser = require('body-parser');
-var encriptacion_1 = require("../encriptacion");
 const CryptoJS = require("crypto-js");
 
 // (B) SECRET KEY
@@ -37,7 +36,7 @@ router.post("/registro",jsonParser, (req, res) =>{
     let region = req.body.region;
     let comuna = req.body.comuna;
     let contrasenya = CryptoJS.AES.encrypt(req.body.contrasenya, key).toString();
-    
+    //console.log("datos: " +req.body.contrasenya, contrasenya)
     let idTipo = 1;
     
 
@@ -63,14 +62,15 @@ router.post("/iniciosesion",jsonParser,(req, res) => {
     let email=req.body.email;
     let contrasenya=req.body.contrasenya
     let contraEncriptada;
-
     connection.query("select * from usuario where email=?",[email],function(error,results,fields){  
         if (error) throw error;
         if(results=="") res.json({"id":1});
         else{
             contraEncriptada=results[0].contrasenya
+            //console.log(contrasenya,contraEncriptada);
             let decrypted = CryptoJS.AES.decrypt(contraEncriptada, key);
             let contraDesencriptada = decrypted.toString(CryptoJS.enc.Utf8);
+            //console.log(contrasenya,contraDesencriptada);
             if (contraDesencriptada!=contrasenya){
                 connection.query("select * from usuario where contrasenya=?",[contrasenya],function(error,results,fields){  
                     if (error) throw error;
@@ -168,6 +168,5 @@ function verifyToken(req,res, next){
     }
     const data = jwt.verify(token,'secretkey');
     req.idTipo=data.id;
-    console.log(req.idTipo);
     next();
 }

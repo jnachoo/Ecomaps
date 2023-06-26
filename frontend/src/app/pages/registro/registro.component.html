@@ -148,12 +148,12 @@
                     <label class="form-label">Contraseña</label>
                 </div>
                 <div class="col-12">
-                    <input type="password" class="form-control" id="contrasenya" formControlName="password" required>
+                    <input type="password" class="form-control" id="contrasenya" formControlName="contrasenya" required>
                 </div>
-                <div *ngIf="formRegistro.controls['password'].getError('required') && formRegistro.controls['password'].touched" class="col text-danger">
+                <div *ngIf="formRegistro.controls['contrasenya'].getError('required') && formRegistro.controls['contrasenya'].touched" class="col text-danger">
                     La contraseña es requerida
                 </div>
-                <div *ngIf="formRegistro.controls['password'].getError('pattern') && formRegistro.controls['password'].touched" class="col text-danger">
+                <div *ngIf="formRegistro.controls['contrasenya'].getError('pattern') && formRegistro.controls['contrasenya'].touched" class="col text-danger">
                     El formato de la contraseña no es correcto
                 </div>
             </div>
@@ -167,13 +167,13 @@
                 <div class="col-12">
                     <input type="password" class="form-control" id="recontrasenya" formControlName="recontrasenya" required>
                 </div>
-                <div *ngIf="formRegistro.controls['recontrasenya'].getError('required') && formRegistro.controls['recontrasenya'].touched" class="col-12 text-danger">
+                <div *ngIf="formRegistro.controls['recontrasenya'].getError('required') && formRegistro.controls['recontrasenya'].touched" class="col- text-danger">
                     La confirmacion de la contraseña es requerida
                 </div>
-                <div *ngIf="formRegistro.controls['recontrasenya'].getError('pattern') && formRegistro.controls['recontrasenya'].touched" class="col-12 text-danger">
+                <div *ngIf="formRegistro.controls['recontrasenya'].getError('pattern') && formRegistro.controls['recontrasenya'].touched" class="col text-danger">
                     El formato de la contraseña no es correcto
                 </div>
-                <div *ngIf="formRegistro.errors?.['passwordmatcherror'] && formRegistro.controls['recontrasenya'].touched" class="col-12 text-danger">
+                <div *ngIf="formRegistro.errors?.['passwordmatcherror'] && formRegistro.controls['recontrasenya'].touched" class="col text-danger">
                     Las contraseñas no coinciden
                 </div>
             </div>
