@@ -1,67 +1,50 @@
 <div class="container-fluid p-0">
-    <div class="row g-3">
-        <div class="col-12">
-            <div class="top-perfil">
-                <h1>Perfil</h1>
-                <div class="top-perfil-components">
-                    <div class="top-perfil-1">
-                        <p>Nombre: {{user.nombre}}</p>
-                        <p>Email: {{user.email}}</p>
-                        <p>RUT: {{user.rut}}</p>
-                    </div>
+        <div class="col-12 top-perfil">
+            <h1>Perfil</h1>
+            <ul class="top-perfil-components p-0">
+                <li class="top-perfil-1">
+                    <img src="assets/images/reciclaje-perfil.png" />
+                </li>
+                <li class="top-perfil-2">
+                    <p>Nombre: {{user.nombre}}</p>
+                    <p>Email: {{user.email}}</p>
+                    <p>RUT: {{user.rut}}</p>
+                </li>
 
-                    <div class="top-perfil-2">
-                        <p>Teléfono: {{user.telefono}}</p>
-                        <p>Fecha de Nacimiento: {{user.fechaNac}}</p>
-                    </div>
+                <li class="top-perfil-3">
+                    <p>Teléfono: {{user.telefono}}</p>
+                    <p>Fecha de Nacimiento: {{user.fechaNac}}</p>
+                </li>
 
-                    <div class="top-perfil-3">
-                        <p>Región: {{user.region}}</p>
-                        <p>Comuna: {{user.comuna}}</p>
-                    </div>
+                <li class="top-perfil-4">
+                    <p>Región: {{user.region}}</p>
+                    <p>Comuna: {{user.comuna}}</p>
+                </li>
 
-                    <div class="top-perfil-4">
-                        <img src="assets/images/reciclaje-perfil.png" />
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="col-12">
-            <div class="bottom-perfil">
-
-                <div class="container-fluid p-0">
-                    <div class="row g-3">
-                        <div class="col-12 col-md-4">
-                            <div class="bottom-perfil-1">
-                                <h2>Configuración</h2>
-                                <p>Editar perfil</p>
-                                <button (click)="apretame()">Wazaaaa</button>
-
-                                <button (click)="cerrarSesion()">Cerrar Sesion</button>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-8">
-                            <div class="bottom-perfil-2">
-                                <h2>Funciones</h2>
-                                <div class="bottom-perfil-2-components">
-                                    <div class="bottom-perfil-2-col1">
-                                        <p>Agregar un nuevo punto de reciclaje</p>
-                                        <p>Editar información de un punto de reciclaje</p>
-                                    </div>
-                                    <div class="bottom-perfil-2-col2">
-                                        <p>Agregar una nueva publicación recicla</p>
-                                        <p>Editar una publicación recicla</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 
-            </div>
+            </ul>
         </div>
-    </div>
+        <div class="col-12 bottom-perfil">
+            <div class="container-fluid p-0">
+                <div class="row g-3 p-0">
+                    <div class="col-12 col-md-4">
+                        <div class="bottom-perfil-1">
+                            <h2>Configuración</h2>
+                            <p><button (click)="editarPerfil()">Editar Perfil</button></p>
+                            <p><button (click)="cerrarSesion()">Cerrar Sesion</button></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-8">
+                        <div class="bottom-perfil-2">
+                            <h2>Funciones</h2>
+                            <p>Agregar un nuevo punto de reciclaje</p>
+                            <p>Editar información de un punto de reciclaje</p>
+                            <p>Agregar una nueva publicación recicla</p>
+                            <p>Editar una publicación recicla</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
 </div>

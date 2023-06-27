@@ -41,5 +41,11 @@ export class UsuarioService {
     var json = JSON.parse(data)
     return(json[0].idTipo);
   }
+
+  editarUsuario(formvalue:any): Observable<any> {
+    const headers = { 'content-type': 'application/json'};
+    const body=JSON.stringify(formvalue);
+    return this.http.put(this.baseURL + '/actualizarusuario', body,{'headers':headers});
+  }
 }
 

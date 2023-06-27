@@ -25,6 +25,7 @@ import { ReduceComponent } from './pages/reduce/reduce.component';
 import { ReutilizaComponent } from './pages/reutiliza/reutiliza.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { TresRComponent } from './pages/tres-r/tres-r.component';
+import { EditarPerfilComponent } from './pages/editar-perfil/editar-perfil.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { TresRComponent } from './pages/tres-r/tres-r.component';
     ReduceComponent,
     ReutilizaComponent,
     RegistroComponent,
-    TresRComponent
+    TresRComponent,
+    EditarPerfilComponent
   ],
   imports: [
     BrowserModule,

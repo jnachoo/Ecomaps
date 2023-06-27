@@ -15,6 +15,7 @@ import { ReciclaComponent } from './pages/recicla/recicla.component';
 import { authGuard } from './guards/auth.guard';
 import { roleGuard } from './guards/role.guard';
 import { Path } from 'leaflet';
+import { EditarPerfilComponent } from './pages/editar-perfil/editar-perfil.component';
 
 const routes: Routes = [
   {path:"",pathMatch:"full",redirectTo:"home"},
@@ -30,6 +31,7 @@ const routes: Routes = [
       role:2
     }
   },
+  {path:"editar-perfil",component:EditarPerfilComponent,canActivate:[authGuard]},
   {path:"registro",component:RegistroComponent},
   {path:"reduce",component:ReduceComponent},
   {path:"reutiliza",component:ReutilizaComponent},

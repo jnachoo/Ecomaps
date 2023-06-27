@@ -130,18 +130,20 @@ router.get('/puntosReciclaje', (req, res) =>{
     })
 })
 //Actualizar un usuario
-router.put('/actualizarusuario', (req,res)=>{
+router.put('/actualizarusuario', jsonParser,(req,res)=>{
+    const nombre = req.body.nombre;
     const email = req.body.email;
     const telefono = req.body.telefono;
     const region = req.body.region;
     const comuna = req.body.comuna;
-    const contrasenya = req.body.contrasenya;
-    let sql = `update Usuario set telefono='${telefono}', region='${region}', comuna='${comuna}', contrasenya='${contrasenya}' where email='${email}'`;
+    console.log(nombre,email,telefono,region,comuna)
+    let sql = `update Usuario set nombre='${nombre}', telefono='${telefono}', region='${region}', comuna='${comuna}' where email='${email}'`;
 
     connection.query(sql, (error, results, fields) =>{
         if(error) throw error;
         else{
-            res.json({status: "cambios realizados"})
+            if(results.affectedRows==0) res.json({id: 2});
+            else res.json({id: 1});
         }
     });
 });

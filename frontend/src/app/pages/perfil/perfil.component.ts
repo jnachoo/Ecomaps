@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
@@ -9,7 +10,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class PerfilComponent {
   
   user: any;
-  constructor(private usuarioService:UsuarioService) {}
+  constructor(private usuarioService:UsuarioService,private router:Router) {}
   
   ngOnInit(): void {
     const data = localStorage.getItem("userData");
@@ -17,8 +18,8 @@ export class PerfilComponent {
       this.user=JSON.parse(data);
     }
   }
-  apretame(){
-    this.usuarioService.obtenerRol();
+  editarPerfil(){
+    this.router.navigate(['editar-perfil']);
   }
   cerrarSesion(){
     this.usuarioService.cerrarSesion();

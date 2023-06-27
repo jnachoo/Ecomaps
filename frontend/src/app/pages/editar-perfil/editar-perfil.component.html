@@ -1,0 +1,103 @@
+<div class="container-fluid section">
+    <div *ngIf="error_id==1" class="alert alert-primary" role="alert">
+        Actualizado correctamente
+    </div>
+    <div *ngIf="error_id==2" class="alert alert-danger" role="alert">
+        No se pudo actualizar
+    </div>
+    <div class="col-12 edit-perfil">
+        <form #form="ngForm" [formGroup]="formEditarUsuario" (ngSubmit)="editarUsuario()" class="formulario needs-validation p-5" novalidate>
+            <h1>Editar Perfil</h1>
+            <ul class="edit-perfil-components p-0">
+                <li class="edit-perfil-1">
+                    <img src="assets/images/reciclaje-perfil.png" />
+                </li>
+                <li class="edit-perfil-2">
+                    <!-- Nombre -->
+                    <div class="col-12">
+                        <label class="form-label">Nombre: {{user.nombre}}</label>
+                    </div>
+                    <div class="col-12">
+                        <input type="text" class="form-control" id="nombre" formControlName="nombre" required>
+                    </div>
+                    <div *ngIf="formEditarUsuario.controls['nombre'].getError('pattern') && formEditarUsuario.controls['nombre'].touched" class="col text-danger">
+                        El nombre solo puede tener letras y espacios
+                    </div>
+                    <!-- Email -->
+                    <div class="col-12">
+                        <label class="form-label">Email: {{user.email}}</label>
+                    </div>
+                    <div class="col-12">
+                        <input type="email" class="form-control" id="email" formControlName="email" placeholder="example@mail.com" required>
+                    </div>
+                    <div *ngIf="formEditarUsuario.controls['email'].getError('email') && formEditarUsuario.controls['email'].touched" class="col text-danger">
+                        El formato del correo electrónico no es correcto
+                    </div>
+                
+                </li>
+
+                <li class="edit-perfil-3">
+                    <!-- Telefono -->
+                    <div class="col-12">
+                        <label class="form-label">Teléfono: {{user.telefono}}</label>
+                    </div>
+                    <div class="col-12">
+                        <input type="text" class="form-control" id="telefono" formControlName="telefono" required>
+                    </div>
+                    <div *ngIf="formEditarUsuario.controls['telefono'].getError('pattern') && formEditarUsuario.controls['telefono'].touched" class="col text-danger">
+                        El teléfono solo puede contener dígitos
+                    </div>
+                    <div *ngIf="formEditarUsuario.controls['telefono'].getError('minlength') && formEditarUsuario.controls['telefono'].touched" class="col text-danger">
+                        El teléfono debe ser mínimo 8
+                    </div>
+                </li>
+
+                <li class="edit-perfil-4">
+                    <!-- Region -->
+                    <div class="col-12">
+                        <label class="form-label">Región: {{user.region}}</label>
+                    </div>
+                    <div class="col-12">
+                        <select [(ngModel)]="region" class="form-select" id="region" name="region" formControlName="region" (ngModelChange)="buscar_comunas()" required>
+                            <option disabled selected>Seleccione una opcion</option>
+                            <option value="Arica y Parinacota">Arica y Parinacota</option>
+                            <option value="Tarapaca">Tarapacá</option>
+                            <option value="Antofagasta">Antofagasta</option>
+                            <option value="Atacama">Atacama</option>
+                            <option value="Coquimbo">Coquimbo</option>
+                            <option value="Valparaiso">Valparaíso</option>
+                            <option value="Metropolitana">Metropolitana</option>
+                            <option value="Libertador Bernardo O'Higgins">Libertador Bernardo O'Higgins</option>
+                            <option value="Maule">Maule</option>
+                            <option value="Ñuble">Ñuble</option>
+                            <option value="Biobio">Biobío</option>
+                            <option value="Araucania">Araucanía</option>
+                            <option value="Los Rios">Los Ríos</option>
+                            <option value="Los Lagos">Los Lagos</option>
+                            <option value="Aisen del Gral. Carlos Ibáñez del Campo">Aisén del Gral. Carlos Ibáñez del Campo</option>
+                            <option value="Magallanes">Magallanes</option>
+                            
+                            
+                        </select>
+                    </div>
+                    <div *ngIf="formEditarUsuario.controls['region'].getError('required') && formEditarUsuario.controls['region'].touched" class="col text-danger">
+                        Selecione una opción
+                    </div>
+                    <!-- Comuna -->
+                    <div class="col-12">
+                        <label class="form-label">Comuna: {{user.comuna}}</label>
+                    </div>
+                    <div class="col-12">
+                        <select class="form-select" id="comuna" name="comuna" formControlName="comuna" required>
+                            <option disabled selected>Selecione una opcion</option>
+                        </select>
+                    </div>
+
+                </li>   
+            </ul>
+            <button type="submit">Guardar</button>
+            <button (click)="volver()">Volver</button>
+        </form>
+        
+    </div>
+</div>
