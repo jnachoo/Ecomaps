@@ -119,9 +119,9 @@ router.post('/cambiarclave', jsonParser,(req,res)=>{
 })
 
 //Modificar
-// Obtener puntos de reciclaje
-router.get('/puntosReciclaje', (req, res) =>{
-    let sql = 'select * from PuntoReciclaje';
+// Obtener todos los usuarios
+router.get('/obtenerUsuario', (req, res) =>{
+    let sql = 'select * from usuario';
     connection.query(sql, (error, results, fields) =>{
         if(error) throw error;
         else{
@@ -148,13 +148,13 @@ router.put('/actualizarusuario', jsonParser,(req,res)=>{
     });
 });
 //Eliminar un usuario
-router.delete('/eliminarusuario',verifyToken ,(req, res) =>{
-    const nombre = req.body.nombre;
-    let sql = `delete from PuntoReciclaje where nombre='${nombre}'`;
+router.delete('/eliminarUsuario',verifyToken,jsonParser ,(req, res) =>{
+    const email = req.body.email;
+    let sql = `delete from usuario where nombre='${email}'`;
     connection.query(sql, (error, results, fields) =>{
         if(error) throw error;
         else{
-            res.json({status: "punto eliminado"})
+            res.json({status:"Usuario eliminado"})
         }
     })
 });

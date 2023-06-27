@@ -47,5 +47,8 @@ export class UsuarioService {
     const body=JSON.stringify(formvalue);
     return this.http.put(this.baseURL + '/actualizarusuario', body,{'headers':headers});
   }
+  obtenerUsuario():Observable<any>{
+    return this.http.get(this.baseURL + '/obtenerUsuario');
+ }
 }
 

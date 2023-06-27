@@ -11,6 +11,7 @@ import { TresRComponent } from './pages/tres-r/tres-r.component';
 import { ReduceComponent } from './pages/reduce/reduce.component';
 import { ReutilizaComponent } from './pages/reutiliza/reutiliza.component';
 import { ReciclaComponent } from './pages/recicla/recicla.component';
+import { GestionarUsuarioComponent } from './pages/gestionar-usuario/gestionar-usuario.component';
 
 import { authGuard } from './guards/auth.guard';
 import { roleGuard } from './guards/role.guard';
@@ -36,7 +37,8 @@ const routes: Routes = [
   {path:"reduce",component:ReduceComponent},
   {path:"reutiliza",component:ReutilizaComponent},
   {path:"recicla",component:ReciclaComponent},
-  {path:"3r",component:TresRComponent}
+  {path:"3r",component:TresRComponent},
+  {path:"gestionar",component:GestionarUsuarioComponent}
 ];
 
 @NgModule({

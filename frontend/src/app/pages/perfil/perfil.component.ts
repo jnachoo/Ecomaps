@@ -24,4 +24,7 @@ export class PerfilComponent {
   cerrarSesion(){
     this.usuarioService.cerrarSesion();
   }
+  obtenerUsuario(){
+    this.router.navigate(['gestionar']);
+  }
 }
