@@ -167,7 +167,7 @@
                 <div class="col-12">
                     <input type="password" class="form-control" id="recontrasenya" formControlName="recontrasenya" required>
                 </div>
-                <div *ngIf="formRegistro.controls['recontrasenya'].getError('required') && formRegistro.controls['recontrasenya'].touched" class="col- text-danger">
+                <div *ngIf="formRegistro.controls['recontrasenya'].getError('required') && formRegistro.controls['recontrasenya'].touched" class="col text-danger">
                     La confirmacion de la contraseña es requerida
                 </div>
                 <div *ngIf="formRegistro.controls['recontrasenya'].getError('pattern') && formRegistro.controls['recontrasenya'].touched" class="col text-danger">

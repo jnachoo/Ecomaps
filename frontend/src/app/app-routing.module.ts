@@ -25,20 +25,19 @@ const routes: Routes = [
   {path:"mapas",component:MapasComponent},
   {path:"ayuda",component:AyudaComponent},
   {path:"cambiar",component:CambiarClaveComponent},
-  {
-    path:"perfil",component:PerfilComponent,
-    canActivate:[authGuard,roleGuard],
-    data:{
-      role:2
-    }
-  },
+  {path:"perfil",component:PerfilComponent,canActivate:[authGuard]},
   {path:"editar-perfil",component:EditarPerfilComponent,canActivate:[authGuard]},
   {path:"registro",component:RegistroComponent},
   {path:"reduce",component:ReduceComponent},
   {path:"reutiliza",component:ReutilizaComponent},
   {path:"recicla",component:ReciclaComponent},
   {path:"3r",component:TresRComponent},
-  {path:"gestionar",component:GestionarUsuarioComponent}
+  {path:"gestionar-usuarios",component:GestionarUsuarioComponent,
+    canActivate:[authGuard,roleGuard],
+    data:{
+      role:2
+    }
+  }
 ];
 
 @NgModule({

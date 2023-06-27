@@ -26,7 +26,7 @@ connection.connect(function (err) {
     }
     console.log('Conexión establecida ' + connection.threadId);
 });
-
+//Registra 
 router.post("/registro",jsonParser, (req, res) =>{
     let email = req.body.email;
     let nombre = req.body.nombre;
@@ -57,7 +57,7 @@ router.post("/registro",jsonParser, (req, res) =>{
         }
     })
 })
-
+//Inicia sesion de un usuario devolviendo un token de inicio de sesion
 router.post("/iniciosesion",jsonParser,(req, res) => {
     let email=req.body.email;
     let contrasenya=req.body.contrasenya
@@ -92,7 +92,7 @@ router.post("/iniciosesion",jsonParser,(req, res) => {
     });
     
 });
-
+//Cambiar la clave de un usuario
 router.post('/cambiarclave', jsonParser,(req,res)=>{
     let email = req.body.email;
     if(req.body.contrasenya==req.body.recontrasenya){
@@ -118,7 +118,6 @@ router.post('/cambiarclave', jsonParser,(req,res)=>{
     
 })
 
-//Modificar
 // Obtener todos los usuarios
 router.get('/obtenerUsuario', (req, res) =>{
     let sql = 'select * from usuario';
@@ -148,16 +147,18 @@ router.put('/actualizarusuario', jsonParser,(req,res)=>{
     });
 });
 //Eliminar un usuario
-router.delete('/eliminarUsuario',verifyToken,jsonParser ,(req, res) =>{
+router.delete('/eliminarusuario',jsonParser ,(req, res) =>{
     const email = req.body.email;
-    let sql = `delete from usuario where nombre='${email}'`;
+    let sql = `delete from usuario where email='${email}'`;
     connection.query(sql, (error, results, fields) =>{
         if(error) throw error;
         else{
-            res.json({status:"Usuario eliminado"})
+            console.log("sdjfdsf")
+            res.json({id:1})
         }
     })
 });
+
 module.exports = router;
 
 function verifyToken(req,res, next){

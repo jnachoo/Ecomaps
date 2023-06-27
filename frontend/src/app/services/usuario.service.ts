@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -49,6 +49,18 @@ export class UsuarioService {
   }
   obtenerUsuario():Observable<any>{
     return this.http.get(this.baseURL + '/obtenerUsuario');
- }
+  }
+  eliminarUsuario(data:any): Observable<any> {
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      body: {
+        email: data
+      },
+    };
+    return this.http.delete(this.baseURL + '/eliminarusuario',options);
+  }
+
 }
 

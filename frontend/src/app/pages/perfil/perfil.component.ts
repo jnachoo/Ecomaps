@@ -18,6 +18,12 @@ export class PerfilComponent {
       this.user=JSON.parse(data);
     }
   }
+  esAdmin(){
+    if(this.user.idTipo==2){
+      return true;
+    }
+    else return false;
+  }
   editarPerfil(){
     this.router.navigate(['editar-perfil']);
   }
@@ -25,6 +31,6 @@ export class PerfilComponent {
     this.usuarioService.cerrarSesion();
   }
   obtenerUsuario(){
-    this.router.navigate(['gestionar']);
+    this.router.navigate(['gestionar-usuarios']);
   }
 }
